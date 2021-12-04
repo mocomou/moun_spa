@@ -1,8 +1,6 @@
 <template>
   <div>
-    <header>
-      header
-    </header>
+    <OrganismsHeader />
     <aside>
       sidebar
     </aside>
