@@ -29,7 +29,7 @@ export default {
   font-size: 4rem;
   margin: 0;
   text-align: center;
-  color: #eeeaec;
+  color: $base-font-color;
   font-family: 'Ubuntu', sans-serif;
 }
 </style>

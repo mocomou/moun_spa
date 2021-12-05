@@ -10,6 +10,6 @@ export default {}
 
 <style scoped lang="scss">
 .foo {
-  color: $base-font-color;
+  color: black;
 }
 </style>
