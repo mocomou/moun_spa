@@ -1,6 +1,12 @@
 <template>
   <header class="header">
-    <h1 class="header__title">moun</h1>
+    <AtomsImage
+      original-image="/images/header/moon.jpg"
+      webp-image="/images/header/moon.webp"
+    />
+    <h1 class="header__title">
+      moun
+    </h1>
   </header>
 </template>
 
@@ -10,13 +16,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 .header {
-  background-color: #ccc;
+  position: relative;
+  @include max-width();
 }
 
 .header__title {
-  font-size: 3rem;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  font-size: 4rem;
   margin: 0;
   text-align: center;
+  color: #eeeaec;
+  font-family: 'Ubuntu', sans-serif;
 }
 </style>
