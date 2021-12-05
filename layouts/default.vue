@@ -8,7 +8,7 @@
       <Nuxt />
     </main>
     <footer>
-      footer
+      <OrganismsFooter />
     </footer>
   </div>
 </template>
