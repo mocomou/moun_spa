@@ -1,8 +1,12 @@
 <template>
-  <footer class="footer">
-    <a class="footer__item">プライバシー</a>
-    <a class="footer__item">利用規約</a>
-    <a class="footer__item">お問い合わせ</a>
+  <footer>
+    <ul class="footer">
+      <div class="footer__container">
+        <li><a class="footer__item">プライバシー</a></li>
+        <li><a class="footer__item">利用規約</a></li>
+        <li><a class="footer__item">お問い合わせ</a></li>
+      </div>
+    </ul>
   </footer>
 </template>
 
@@ -12,15 +16,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
-footer {
-  color: #fff;
+ul {
+  position: relative;
+  color: $base-font-color;
   background-color: black;
-  padding: 30px 50px;
-  margin: 30px 0;
-  text-align: right;
+  height: 60px;
+  width: 100%;
+  max-width: 984px;
+  margin: 0 auto;
+}
+
+.footer__container {
+  position: absolute;
+  right: 50px;
+  padding: 20px 0;
+}
+
+li {
+  display: inline;
 }
 
 .footer__item {
-  margin: 10px;
+  font-size: 15px;
+  padding-left: 20px;
 }
 </style>
