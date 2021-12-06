@@ -1,12 +1,17 @@
 <template>
-  <footer>
-    <ul class="footer">
-      <div class="footer__container">
-        <li><a class="footer__item">プライバシー</a></li>
-        <li><a class="footer__item">利用規約</a></li>
-        <li><a class="footer__item">お問い合わせ</a></li>
-      </div>
+  <footer class="footer">
+    <ul class="footer__list">
+      <li>
+        <a>プライバシー</a>
+      </li>
+      <li>
+        <a>利用規約</a>
+      </li>
+      <li>
+        <a>お問い合わせ</a>
+      </li>
     </ul>
+    <small class="footer__copy-right">©️ 2022 moun</small>
   </footer>
 </template>
 
@@ -16,28 +21,27 @@ export default {
 </script>
 
 <style scoped lang="scss">
-ul {
-  position: relative;
+.footer {
+  @include max-width();
   color: $base-font-color;
   background-color: black;
-  height: 60px;
-  width: 100%;
-  max-width: 984px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 16px 0;
 }
 
-.footer__container {
-  position: absolute;
-  right: 50px;
-  padding: 20px 0;
+.footer__list {
+  margin-right: 40px;
+  padding: 0;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 24px;
+  list-style: none;
 }
 
-li {
-  display: inline;
-}
-
-.footer__item {
-  font-size: 15px;
-  padding-left: 20px;
+.footer__copy-right {
+    margin-right: 40px;
 }
 </style>
