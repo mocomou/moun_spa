@@ -1,12 +1,14 @@
 <template>
   <div>
     <OrganismsHeader />
-    <aside>
-      sidebar
-    </aside>
-    <main>
-      <Nuxt />
-    </main>
+    <div class="container">
+      <aside class="container__aside">
+        <OrganismsSideBar />
+      </aside>
+      <main class="container__main">
+        <Nuxt />
+      </main>
+    </div>
     <footer>
       <OrganismsFooter />
     </footer>
@@ -19,5 +21,20 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/style/normalize.scss'
+@import '~/assets/style/normalize.scss';
+.container {
+  // @include max-width-body();
+  margin: 0;
+  display: flex;
+}
+
+.container__aside {
+  flex-basis: 22%;
+}
+
+.container__main {
+  flex-basis: 74%;
+  justify-content: flex-end;
+}
+
 </style>

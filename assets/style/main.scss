@@ -1,6 +1,12 @@
 $base-font-color: #eeeaec;
-@mixin max-width() {
+
+@mixin max-width {
   width: 100%;
-  max-width: 1024px;
+  padding: 0;
+}
+
+@mixin max-width-body() {
+  width: 100%;
+  max-width: 1700px;
   margin: 0 auto;
 }

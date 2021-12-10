@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <h1>記事一覧</h1>
-    <p>{{ posts }}</p>
+  <div class="cards">
+    <ul v-for="post in posts" :key="post">
+      <li class="card">{{post}}</li>
+    </ul>
   </div>
 </template>
 
@@ -33,7 +34,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.foo {
-  color: black;
+.cards {
+  padding: 40px 0;
+  gap: 50px 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
+ul {
+  padding: 0;
+  margin: 0;
+  border: solid 3px #B14400;
+}
+.card {
+  list-style: none;
+  width: 284px;
+  height: 160px;
+  }
 </style>
