@@ -1,9 +1,9 @@
 <template>
   <ul class="cards">
     <AtomsCard
-      v-for="post in posts"
-      :key="post"
-      :post="post"
+      v-for="item in posts"
+      :key="item"
+      :post="item"
     />
   </ul>
 </template>
