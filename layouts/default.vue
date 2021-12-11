@@ -29,12 +29,11 @@ export default {
 }
 
 .container__aside {
-  flex-basis: 22%;
+  flex-basis: 15%;
 }
 
 .container__main {
-  flex-basis: 74%;
-  justify-content: flex-end;
+  flex-basis: 83%;
 }
 
 </style>

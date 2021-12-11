@@ -1,9 +1,7 @@
 <template>
-  <div class="cards">
-    <ul v-for="post in posts" :key="post">
-      <li class="card">{{post}}</li>
-    </ul>
-  </div>
+  <OrganismsCards
+    :posts="posts"
+  />
 </template>
 
 <script>
@@ -41,14 +39,14 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-ul {
-  padding: 0;
-  margin: 0;
-  border: solid 3px #B14400;
-}
-.card {
-  list-style: none;
-  width: 284px;
-  height: 160px;
-  }
+// ul {
+//   padding: 0;
+//   margin: 0;
+//   border: solid 3px #B14400;
+// }
+// .card {
+//   list-style: none;
+//   width: 284px;
+//   height: 160px;
+//   }
 </style>
