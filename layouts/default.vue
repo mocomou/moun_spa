@@ -23,7 +23,6 @@ export default {
 <style lang="scss">
 @import '~/assets/style/normalize.scss';
 .container {
-  // @include max-width-body();
   margin: 0;
   display: flex;
 }
