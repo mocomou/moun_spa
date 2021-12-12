@@ -23,16 +23,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.cards {
-  display: flex;
-  justify-content: center;
-}
-
 .cards__container {
   list-style: none;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   grid-gap: 40px 40px;
   gap: 40px 40px;
+  padding: 0;
+  margin: 0;
 }
 </style>
