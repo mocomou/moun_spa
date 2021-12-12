@@ -42,8 +42,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$card-width: 400px;
-$card-height: 320px;
+$card-width: 320px;
+$card-height: 274px;
 
 .card {
   border: 1px solid gray;

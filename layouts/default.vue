@@ -32,7 +32,7 @@ export default {
 }
 
 .container__main {
-  flex-basis: 83%;
+  flex-basis: 85%;
 }
 
 </style>
