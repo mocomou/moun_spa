@@ -1,12 +1,9 @@
 <template>
   <header class="header">
-    <AtomsImage
-      original-image="/images/header/moon.jpg"
-      webp-image="/images/header/moon.webp"
-    />
-    <h1 class="header__title">
-      moun
-    </h1>
+    <div class="header__logo">
+      <img src="/images/header/icon.png" alt="icon" class="header__icon">
+      <h1 class="header__title">moun</h1>
+    </div>
   </header>
 </template>
 
@@ -16,19 +13,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 .header {
-  position: relative;
   @include max-width();
+  height: 80px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.header__icon {
+  width: 50px;
 }
 
 .header__title {
-  position: absolute;
-  bottom: 30px;
-  left: 40px;
-  font-size: 4rem;
+  font-size: 3rem;
+  padding-left: 4px;
   margin: 0;
-  text-align: center;
   color: $base-font-color;
   font-family: 'Ubuntu', sans-serif;
 }
