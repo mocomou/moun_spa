@@ -16,7 +16,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 .header {
   @include max-width();
-  height: 80px;
+  height: 60px;
   background-color: black;
   display: flex;
   align-items: center;
@@ -29,11 +29,11 @@ export default {
 }
 
 .header__icon {
-  width: 50px;
+  width: 42px;
 }
 
 .header__title {
-  font-size: 3rem;
+  font-size: 2.8rem;
   padding-left: 4px;
   margin: 0;
   color: $base-font-color;
