@@ -59,7 +59,6 @@ $card-height: 320px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-
 }
 
 .card__icon {
