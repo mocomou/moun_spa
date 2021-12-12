@@ -1,3 +1,5 @@
+import * as FontAwesome from './build/fontawesome'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -39,7 +41,17 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/date-fns',
+    '@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }
   ],
+
+  fontawesome: {
+    icons: {
+      solid: FontAwesome.solid,
+      regular: FontAwesome.regular,
+      brands: FontAwesome.brands
+    }
+  },
+
   styleResources: {
     scss: [
       './assets/style/main.scss'

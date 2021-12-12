@@ -4,6 +4,9 @@
       <img src="/images/header/icon.png" alt="icon" class="header__icon">
       <h1 class="header__title">moun</h1>
     </div>
+    <div class="header__user">
+      <font-awesome-icon :icon="['far', 'user']" class="font-awesome-size" />
+    </div>
   </header>
 </template>
 
