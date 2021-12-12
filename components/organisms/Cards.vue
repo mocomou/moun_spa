@@ -26,11 +26,10 @@ export default {
 .cards__container {
   list-style: none;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   grid-gap: 40px 40px;
   gap: 40px 40px;
-  padding: 0;
+  padding: 0 auto;
   margin: 0;
 }
 </style>
