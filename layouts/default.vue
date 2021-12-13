@@ -28,7 +28,7 @@ export default {
 }
 
 .container__aside {
-  flex-basis: 15%;
+  background-color: #eaeaea;
 }
 
 .container__main {

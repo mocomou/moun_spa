@@ -6,6 +6,6 @@
 
 <style scoped lang="scss">
 .bar {
-  color: $base-font-color;
+  color: $base-title-color;
 }
 </style>

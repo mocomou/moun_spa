@@ -23,7 +23,7 @@ export default {
 <style scoped lang="scss">
 .footer {
   @include max-width();
-  color: $base-font-color;
+  color: $base-title-color;
   background-color: black;
   display: flex;
   flex-direction: column;
