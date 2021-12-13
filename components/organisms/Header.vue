@@ -1,11 +1,13 @@
 <template>
   <header class="header">
-    <div class="header__logo">
-      <img src="/images/header/icon.png" alt="icon" class="header__icon">
-      <h1 class="header__title">moun</h1>
-    </div>
-    <div class="header__user">
-      <font-awesome-icon :icon="['far', 'user']" class="font-awesome-size" />
+    <div class="header__inner">
+      <div class="header__logo">
+        <img src="/images/header/icon.png" alt="icon" class="header__image">
+        <h1 class="header__title">moun</h1>
+      </div>
+      <div class="header__user">
+        <font-awesome-icon :icon="['far', 'user']" class="header__user-icon" />
+      </div>
     </div>
   </header>
 </template>
@@ -21,17 +23,22 @@ export default {
   @include max-width();
   height: 60px;
   background-color: black;
+}
+
+.header__inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  margin: 0 40px;
 }
 
 .header__logo {
   display: flex;
   align-items: center;
-  margin-left: 40px;
 }
 
-.header__icon {
+.header__image {
   width: 42px;
 }
 
@@ -41,5 +48,10 @@ export default {
   margin: 0;
   color: $base-font-color;
   font-family: 'Ubuntu', sans-serif;
+}
+
+.header__user-icon {
+  color: white;
+  font-size: 28px;
 }
 </style>
