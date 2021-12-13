@@ -46,7 +46,8 @@ $card-width: 320px;
 $card-height: 274px;
 
 .card {
-  border: 1px solid gray;
+  box-shadow:0px 0px 5px #808080;
+  border: 1px solid #c0c0c0;
   border-radius: 6px;
   width: $card-width;
   height: $card-height;
@@ -91,6 +92,9 @@ $card-height: 274px;
   font-size: 1.1rem;
   font-weight: bold;
   margin-left: 4px;
+}
+.card__user-name:hover {
+  color:$hover-color;
 }
 
 .card__created-at {

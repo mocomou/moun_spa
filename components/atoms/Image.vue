@@ -24,5 +24,6 @@ export default {
 .image {
   object-fit: cover;
   width: 100%;
+  border-radius: 6px 6px 0 0;
 }
 </style>
