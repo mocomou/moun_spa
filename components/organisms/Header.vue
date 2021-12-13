@@ -15,6 +15,9 @@ export default {
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 .header {
+  position: sticky;
+  // top: -webkit-sticky;
+  top: 0;
   @include max-width();
   height: 60px;
   background-color: black;
@@ -36,7 +39,7 @@ export default {
   font-size: 2.8rem;
   padding-left: 4px;
   margin: 0;
-  color: $base-font-color;
+  color: $base-title-color;
   font-family: 'Ubuntu', sans-serif;
 }
 </style>
