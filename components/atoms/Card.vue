@@ -49,6 +49,7 @@ $card-height: 274px;
   box-shadow:0px 0px 5px #808080;
   border: 1px solid #c0c0c0;
   border-radius: 6px;
+  overflow: hidden;
   width: $card-width;
   height: $card-height;
 }
