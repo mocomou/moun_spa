@@ -3,7 +3,7 @@
     <ul class="cards__container">
       <AtomsCard
         v-for="post in posts"
-        :key="post"
+        :key="post.id"
         :post="post"
       />
     </ul>

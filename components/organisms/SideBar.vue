@@ -1,7 +1,7 @@
 <template>
   <nav class="sideBar">
     <!-- logout -->
-    <li class="sideBarList"><a href="#" class="sideBarLink">ログイン</a></li>
+    <li class="sideBarList"><NuxtLink to="/login" class="sideBarLink">ログイン</NuxtLink></li>
     <li class="sideBarList"><a href="#" class="sideBarLink">mounとは</a></li>
     <!-- login -->
     <li class="sideBarList"><a href="#" class="sideBarLink">タイムライン</a></li>
