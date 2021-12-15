@@ -14,6 +14,7 @@ export default {
 
   mounted () {
     this.contents()
+    console.log(this.$store.$auth.$storage._state['_token.auth0'])
   },
 
   methods: {
