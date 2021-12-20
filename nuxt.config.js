@@ -62,8 +62,13 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
+    '@nuxtjs/proxy'
   ],
+  axios: {
+    // baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://moun.info'
+    baseURL: 'https://moun.info'
+  },
   auth: {
     redirect: {
       login: '/', // redirect user when not connected
