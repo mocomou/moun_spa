@@ -1,42 +1,23 @@
 <template>
   <div>
-    <form action="" onSubmit="return false">
-      <label for="title">タイトル</label>
-      <input
-        id="title"
-        v-model="title"
-        type="text"
-      >
-      <label for="content">記事の内容</label>
-      <textarea
-        id="content"
-        v-model="content"
-        name="content"
-        cols="30"
-        rows="10"
-      />
-      <input type="submit" value="作成" @click="submit">
-    </form>
+    <div id="editorjs"></div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      title: '',
-      content: ''
+      editor: null,
+      contentData: {},  // 前回保存した内容などがあれば、async dataやfetchなどで取得しておき、ここに格納しておきます。
     }
   },
-  methods: {
-    submit () {
-      const url = 'http://localhost:4000/api/v1/posts'
-      const params = {
-        title: this.title,
-        content: this.content
-      }
-      this.$axios.post(url, params)
-    }
+  mounted() {
+    this.editor = this.$editor.EditorJS({
+      holder: 'editorjs',
+      placeholder: '編集してください！',
+      data: this.contentData,
+    })
   }
 }
 </script>
