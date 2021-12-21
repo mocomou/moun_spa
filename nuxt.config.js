@@ -62,12 +62,14 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next',
-    '@nuxtjs/proxy'
+    '@nuxtjs/auth-next'
   ],
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://moun.info'
-    baseURL: 'https://moun.info'
+    proxy: true
+  },
+  proxy: {
+    '/api/': 'http://localhost:4000'
   },
   auth: {
     redirect: {
@@ -90,9 +92,6 @@ export default {
       }
     }
   },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
