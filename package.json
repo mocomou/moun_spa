@@ -12,6 +12,9 @@
   },
   "dependencies": {
     "@editorjs/editorjs": "^2.22.2",
+    "@editorjs/header": "^2.6.2",
+    "@editorjs/list": "^1.6.2",
+    "@editorjs/underline": "^1.0.0",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -28,6 +31,9 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
+    "@editorjs/image": "^2.6.2",
+    "@editorjs/link": "^2.3.1",
+    "@editorjs/marker": "^1.2.2",
     "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
     "eslint": "^7.29.0",
