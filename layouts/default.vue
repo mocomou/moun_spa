@@ -25,6 +25,7 @@ export default {
 .container {
   margin: 0;
   display: flex;
+  height: 100vh;
 }
 
 .container__aside {
@@ -34,5 +35,4 @@ export default {
 .container__main {
   flex-basis: 85%;
 }
-
 </style>
