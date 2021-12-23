@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <OrganismsHeader />
+  <div class="wrap">
+    <OrganismsHeader
+      class="header"
+    />
     <div class="container">
       <aside class="container__aside">
         <OrganismsSideBar />
@@ -9,9 +11,9 @@
         <Nuxt />
       </main>
     </div>
-    <footer>
-      <OrganismsFooter />
-    </footer>
+    <OrganismsFooter
+      class="footer"
+    />
   </div>
 </template>
 
@@ -22,17 +24,35 @@ export default {
 
 <style lang="scss">
 @import '~/assets/style/normalize.scss';
+.wrap {
+  position: relative;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  z-index: 100;
+}
+
 .container {
   margin: 0;
   display: flex;
-  height: 100vh;
 }
 
 .container__aside {
   background-color: #eaeaea;
+  // position: sticky;
+  min-height: 100vh;
 }
 
 .container__main {
   flex-basis: 85%;
+  margin-top: $header-height;
+  margin-bottom: $footer-height;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
 }
 </style>

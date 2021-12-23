@@ -1,13 +1,16 @@
 <template>
-  <nav class="sideBar">
-    <!-- logout -->
-    <li class="sideBarList"><NuxtLink to="/login" class="sideBarLink">ログイン</NuxtLink></li>
-    <li class="sideBarList"><a href="#" class="sideBarLink">mounとは</a></li>
-    <!-- login -->
-    <li class="sideBarList"><a href="#" class="sideBarLink">タイムライン</a></li>
-    <li class="sideBarList"><a href="#" class="sideBarLink">フォロー</a></li>
-    <li class="sideBarList"><a href="#" class="sideBarLink">いいね</a></li>
-    <li class="sideBarList"><a href="#" class="sideBarLink">新着</a></li>
+  <nav class="sidebar">
+    <ul class="sidebar__list">
+      <!-- logout -->
+      <li class="sidebar__item"><NuxtLink to="/login" class="sidebar__link">ログイン</NuxtLink></li>
+      <li class="sidebar__item"><a href="#" class="sidebar__link">mounとは</a></li>
+      <!-- login -->
+      <li class="sidebar__item"><a href="#" class="sidebar__link">タイムライン</a></li>
+      <li class="sidebar__item"><a href="#" class="sidebar__link">フォロー</a></li>
+      <li class="sidebar__item"><a href="#" class="sidebar__link">いいね</a></li>
+      <li class="sidebar__item"><a href="#" class="sidebar__link">新着</a></li>
+      <li><NuxtLink to="/logout">ログアウト</NuxtLink></li>
+    </ul>
   </nav>
 </template>
 
@@ -17,25 +20,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.sideBar {
-  position: sticky;
-  top: 100px;
-  left: 0;
-  // flex-basis: 173px;
+.sidebar {
+  position: relative;
   list-style-type: none;
   margin: 40px;
+  width: 100px ;
+  top: $header-height;
 }
 
-.sideBarList {
+.sidebar__list {
+  position: fixed;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar__item {
   padding-bottom: 20px;
 }
 
-.sideBarLink {
+.sidebar__link {
   text-decoration: none;
   color: $base-font-color;
 }
 
-.sideBarLink:hover {
+.sidebar__link:hover {
   color: $hover-color;
 }
 </style>
