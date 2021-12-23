@@ -29,13 +29,16 @@ export default {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 16px 0;
+  padding: 0;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer__list {
   margin-right: 40px;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   display: flex;
   gap: 24px;
   list-style: none;
@@ -43,5 +46,7 @@ export default {
 
 .footer__copy-right {
     margin-right: 40px;
+    font-size: 0.5rem;
+    padding-bottom: 8px;
 }
 </style>
