@@ -1,16 +1,16 @@
 <template>
   <div>
     <form @submit.prevent="userLogin">
-      <div>
+      <!-- <div>
         <label>Username</label>
         <input type="text" v-model="login.username" />
       </div>
       <div>
         <label>Password</label>
         <input type="text" v-model="login.password" />
-      </div>
+      </div> -->
       <div>
-        <button type="submit">Submit</button>
+        <button @click="userLogin" type="submit">Submit</button>
       </div>
     </form>
   </div>
@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted () {
-    this.$auth.loginWith('auth0')
+    // this.$auth.loginWith('auth0')
   },
   methods: {
     async userLogin () {
