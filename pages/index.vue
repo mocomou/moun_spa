@@ -19,7 +19,7 @@ export default {
 
   methods: {
     contents () {
-      const url = 'http://localhost:4000/api/v1/posts'
+      const url = '/api/v1/posts'
       this.$axios.get(url)
         .then((res) => {
           this.posts = res.data.posts
