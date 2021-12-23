@@ -20,11 +20,10 @@ export default {
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 .header {
-  position: sticky;
   // top: -webkit-sticky;
   top: 0;
   @include max-width();
-  height: 60px;
+  height: $header-height;
   background-color: black;
 }
 
@@ -32,7 +31,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: $header-height;
   margin: 0 40px;
 }
 

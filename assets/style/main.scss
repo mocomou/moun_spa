@@ -1,6 +1,8 @@
 $base-title-color: #eeeaec;
 $base-font-color: #333;
 $hover-color: #8da0b6;
+$header-height: 60px;
+$footer-height: 60px;
 
 @mixin max-width {
   width: 100%;

@@ -30,9 +30,7 @@ export default {
   justify-content: flex-end;
   align-items: flex-end;
   padding: 0;
-  height: 60px;
-  position: absolute;
-  bottom: 0;
+  height: $footer-height;
 }
 
 .footer__list {
