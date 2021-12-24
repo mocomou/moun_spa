@@ -1,6 +1,6 @@
 <template>
   <button class="btn">
-    Post
+    <span>post</span>
   </button>
 </template>
 
@@ -11,28 +11,24 @@ export default {
 
 <style scoped lang="scss">
 .btn {
-  color: white;
-  font-weight: bold;
-  background-color: #f8b500;
+  color: $base-font-color;
+  border: 2px solid $base-font-color;
+  background-color: white;
   font-size: 0.8rem;
+  font-weight: bold;
   padding: 0.7rem 0.9rem;
   margin: 10px 0;
-  box-sizing: content-box;
   width: $btn-width;
-  border: none;
   display: flex;
   justify-content: center;
-  border-radius: 12px;
-  box-shadow: 0 4px #cc9600;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
 
 .btn:hover {
+  background-color: $base-font-color;
+  color: white;
   cursor: pointer;
-  opacity: 0.9;
-}
-
-.btn:active {
-  box-shadow: none;
-  transform: translateY(4px);
+  transition: all 0.3s;
 }
 </style>

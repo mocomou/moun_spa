@@ -18,13 +18,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap');
 .header {
   // top: -webkit-sticky;
   top: 0;
   @include max-width();
   height: $header-height;
-  background-color: black;
+  background-color: #202020;
 }
 
 .header__inner {
@@ -48,8 +48,8 @@ export default {
   font-size: 2.8rem;
   padding-left: 4px;
   margin: 0;
-  color: $base-title-color;
-  font-family: 'Ubuntu', sans-serif;
+  color: white;
+  font-family: 'Heebo', sans-serif;
 }
 
 .header__user-icon {
