@@ -9,7 +9,7 @@
       <li class="sidebar__item"><a href="#" class="sidebar__link">フォロー</a></li>
       <li class="sidebar__item"><a href="#" class="sidebar__link">いいね</a></li>
       <li class="sidebar__item"><a href="#" class="sidebar__link">新着</a></li>
-      <li><NuxtLink to="/logout">ログアウト</NuxtLink></li>
+      <li class="sidebar__item"><NuxtLink to="/logout" class="sidebar__link">ログアウト</NuxtLink></li>
     </ul>
   </nav>
 </template>

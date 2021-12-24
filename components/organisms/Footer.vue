@@ -34,8 +34,7 @@ export default {
 }
 
 .footer__list {
-  margin-right: 40px;
-  padding: 0;
+  padding: 0 40px;
   font-size: 0.5rem;
   display: flex;
   gap: 24px;

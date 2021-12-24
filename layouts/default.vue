@@ -42,6 +42,7 @@ export default {
 .container__aside {
   background-color: #eaeaea;
   // position: sticky;
+  width: 170px;
   min-height: 100vh;
 }
 
