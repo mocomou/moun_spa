@@ -10,7 +10,14 @@
         <input type="text" v-model="login.password" />
       </div> -->
       <div @click="userLogin" type="submit" class="button">
-        <AtomsButton character="ログイン" />
+        <AtomsButton
+          class="primary"
+          character="ログイン"
+        />
+        <AtomsButton
+          class="secondary"
+          character="ログアウト"
+        />
       </div>
     </form>
   </div>

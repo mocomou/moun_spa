@@ -2,7 +2,10 @@
   <div>
     <div id="editorjs" />
     <div @click="save" class="button">
-      <AtomsButton character="post" />
+      <AtomsButton
+        class="primary"
+        character="post"
+      />
     </div>
   </div>
 </template>
