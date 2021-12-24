@@ -1,11 +1,28 @@
 <template>
   <button class="btn">
-    <span>post</span>
+    {{ character }}
   </button>
 </template>
 
 <script>
 export default {
+  props: {
+    character: {
+      type: String,
+      require: true
+    }
+  }
+  // data () {
+  //   return {
+  //     character: ''
+  //   }
+  // },
+  // methods: {
+  //   btnCharacter: (text) => {
+  //     const character = text
+  //     return character
+  //   }
+  // }
 }
 </script>
 

@@ -9,8 +9,8 @@
         <label>Password</label>
         <input type="text" v-model="login.password" />
       </div> -->
-      <div>
-        <button @click="userLogin" type="submit">Submit</button>
+      <div @click="userLogin" type="submit" class="button">
+        <AtomsButton character="ログイン" />
       </div>
     </form>
   </div>
@@ -41,3 +41,11 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.button {
+  width: 200px;
+  margin-left: auto;
+  margin-right: 60px;
+}
+</style>
