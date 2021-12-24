@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
 .header {
   // top: -webkit-sticky;
   top: 0;
@@ -41,11 +41,11 @@ export default {
 }
 
 .header__image {
-  width: 42px;
+  width: 36px;
 }
 
 .header__title {
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   padding-left: 4px;
   margin: 0;
   color: white;

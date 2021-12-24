@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss">
 @import '~/assets/style/normalize.scss';
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Noto+Sans+JP:wght@300&display=swap');
 .wrap {
   position: relative;
   min-height: 100vh;
@@ -37,6 +38,7 @@ export default {
 .container {
   margin: 0;
   display: flex;
+  @include base-font();
 }
 
 .container__aside {
@@ -44,16 +46,19 @@ export default {
   // position: sticky;
   width: 170px;
   min-height: 100vh;
+  @include base-font();
 }
 
 .container__main {
   flex-basis: 85%;
   margin-top: $header-height;
   margin-bottom: $footer-height;
+  @include base-font();
 }
 
 .footer {
   position: absolute;
   bottom: 0;
+  @include base-font();
 }
 </style>
