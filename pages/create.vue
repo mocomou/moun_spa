@@ -38,7 +38,7 @@ export default {
 
 <style scoped lang="scss">
 .button {
-  width: 100px;
+  width: 120px;
   margin-left: auto;
   margin-right: 60px;
 }
