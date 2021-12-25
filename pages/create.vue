@@ -22,7 +22,7 @@ export default {
   mounted () {
     this.editor = this.$editor.EditorJS({
       holder: 'editorjs',
-      placeholder: '編集！'
+      placeholder: 'ここにテキストを入力してください'
     })
   },
   methods: {
@@ -30,7 +30,12 @@ export default {
       this.editor.save().then((outputData) => {
         const htmlArray = edjsParser.parse(outputData)
         const html = htmlArray.join('')
-        console.log('Article data: ', html)
+        const url = '/api/v1/posts'
+        this.$axios.post(url, html)
+          .then((res) => {
+            console.log('Article data: ', html)
+            console.log(res)
+          })
       }).catch((error) => {
         console.log('Saving failed: ', error)
       })
