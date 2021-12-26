@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="editor">
+    <div class="editor__wrap"><input type="text" name="title" class="editor__title" placeholder="タイトルを入力してください"></div>
     <div id="editorjs" />
-    <div @click="save" class="button">
+    <div @click="save" name="content" class="button">
       <AtomsButton
         class="primary"
         character="post"
@@ -22,7 +23,7 @@ export default {
   mounted () {
     this.editor = this.$editor.EditorJS({
       holder: 'editorjs',
-      placeholder: '編集！'
+      placeholder: 'テキストを入力してください'
     })
   },
   methods: {
@@ -44,5 +45,21 @@ export default {
   width: 120px;
   margin-left: auto;
   margin-right: 60px;
+}
+
+.editor__wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.editor__title {
+  margin: 28px 0;
+  padding: 0;
+  width: 80%;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  font-weight: bold;
 }
 </style>

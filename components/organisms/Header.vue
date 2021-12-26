@@ -32,7 +32,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   height: $header-height;
-  margin: 0 40px;
+  margin: 0 20px;
 }
 
 .header__logo {
