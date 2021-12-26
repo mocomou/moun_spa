@@ -1,13 +1,15 @@
 <template>
   <header class="header">
     <div class="header__inner">
-      <div class="header__logo">
+      <NuxtLink to="/" class="header__logo" tag="div">
         <img src="/images/header/icon.png" alt="icon" class="header__image">
         <h1 class="header__title">moun</h1>
-      </div>
-      <div class="header__user">
-        <font-awesome-icon :icon="['far', 'user']" class="header__user-icon" />
-      </div>
+      </NuxtLink>
+      <NuxtLink to="/create">
+        <div class="header__user">
+          <font-awesome-icon :icon="['far', 'user']" class="header__user-icon" />
+        </div>
+      </NuxtLink>
     </div>
   </header>
 </template>
@@ -38,6 +40,12 @@ export default {
 .header__logo {
   display: flex;
   align-items: center;
+  list-style: none;
+}
+
+.header__logo:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .header__image {
