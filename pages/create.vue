@@ -4,6 +4,12 @@
     <div @click="save" class="button">
       <AtomsButton
         class="primary"
+        character="save"
+      />
+    </div>
+    <div @click="post" class="button">
+      <AtomsButton
+        class="primary"
         character="post"
       />
     </div>
@@ -16,7 +22,8 @@ const edjsParser = edjsHTML()
 export default {
   data () {
     return {
-      editor: null
+      editor: null,
+      post: ''
     }
   },
   mounted () {
@@ -24,21 +31,28 @@ export default {
       holder: 'editorjs',
       placeholder: 'ここにテキストを入力してください'
     })
+    this.send()
   },
   methods: {
     save () {
       this.editor.save().then((outputData) => {
         const htmlArray = edjsParser.parse(outputData)
         const html = htmlArray.join('')
-        const url = '/api/v1/posts'
-        this.$axios.post(url, html)
-          .then((res) => {
-            console.log('Article data: ', html)
-            console.log(res)
-          })
+        console.log('Article data: ', html)
       }).catch((error) => {
         console.log('Saving failed: ', error)
       })
+    },
+    send () {
+      const url = '/api/v1/posts'
+      this.$axios.post(url)
+        .then((res) => {
+          this.post = res.data.post
+          console.log(res)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
   }
 }
