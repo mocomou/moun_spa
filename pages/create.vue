@@ -30,11 +30,7 @@ export default {
   mounted () {
     this.editor = this.$editor.EditorJS({
       holder: 'editorjs',
-<<<<<<< HEAD
-      placeholder: 'ここにテキストを入力してください'
-=======
       placeholder: 'テキストを入力してください'
->>>>>>> main
     })
     this.send()
   },
