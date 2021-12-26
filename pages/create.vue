@@ -72,12 +72,13 @@ export default {
 }
 
 .editor__title {
-  margin: 28px 0;
   padding: 0;
   width: 80%;
   border: none;
   outline: none;
   font-size: 2rem;
   font-weight: bold;
+  max-width: 650px;
+  margin: 20px auto;
 }
 </style>
