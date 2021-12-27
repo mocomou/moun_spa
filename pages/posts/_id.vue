@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ post.title }}
-    <div v-html="html" />
+    <div v-html="cleanHTML" />
   </div>
 </template>
 
@@ -21,10 +21,10 @@ export default {
     // const jsdom = require('jsdom').jsdom
     // const window = jsdom('').defaultView
     // const DOMPurify = createDOMPurify(window)
-    const clean = DOMPurify.sanitize(html)
+    const cleanHTML = DOMPurify.sanitize(html)
     return {
       post,
-      clean
+      cleanHTML
     }
   }
 }
