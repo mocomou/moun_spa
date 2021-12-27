@@ -11,14 +11,13 @@
     <div
       id="editorjs"
     />
-    <clickMethod
+    <btn
       class="primary button"
       character="save"
+      @click="save"
     >
-      <AtomsButton
-        @Click="save"
-      />
-    </clickMethod>
+      <AtomsButton />
+    </btn>
     <!-- <div @click="post" class="button">
       <AtomsButton
         class="primary"
@@ -29,13 +28,13 @@
 </template>
 
 <script>
-import ClickMethod from '../components/atoms/button'
-// const edjsHTML = require('editorjs-html')
-// const edjsParser = edjsHTML()
+import Btn from '../components/atoms/button'
+const edjsHTML = require('editorjs-html')
+const edjsParser = edjsHTML()
 export default {
   name: 'Click',
   components: {
-    ClickMethod
+    Btn
   },
   data () {
     return {
@@ -50,7 +49,7 @@ export default {
     })
   },
   methods: {
-    save: () => {
+    save () {
       this.editor.save().then((outputData) => {
         const url = '/api/v1/posts'
         const params = {
@@ -59,15 +58,12 @@ export default {
         }
         this.$axios.post(url, params)
           .then((res) => {
-            // const json = JSON.parse(res.data.post.content)
-            // const html = this.parseEditorjsData(json)
+            const json = JSON.parse(res.data.post.content)
+            const html = this.parseEditorjsData(json)
+            return edjsParser.parse(html).join('')
           })
       })
     }
-    // save () {
-    // parseEditorjsData (editorjsData) {
-    //   return edjsParser.parse(editorjsData).join('')
-    // }
   }
 }
 </script>
