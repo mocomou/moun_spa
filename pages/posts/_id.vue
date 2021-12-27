@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import DOMPurify from 'dompurify'
 const edjsHTML = require('editorjs-html')
 const edjsParser = edjsHTML()
 
@@ -16,9 +17,10 @@ export default {
       .then(res => res.data.post)
     const json = JSON.parse(post.content)
     const html = edjsParser.parse(json).join('')
+    const clean = DOMPurify.sanitize(html)
     return {
       post,
-      html
+      clean
     }
   }
 }
