@@ -5,10 +5,8 @@
 </template>
 
 <script>
-// const edjsHTML = require('editorjs-html')
-// const edjsParser = edjsHTML()
 export default {
-  name: 'ClickMethod',
+  name: 'Btn',
   props: {
     character: {
       type: String,
@@ -16,12 +14,6 @@ export default {
       default: 'ボタン'
     }
   }
-  // methods: {
-  //   click: () => {
-  //     this.$emit('save',
-  //     )
-  //   }
-  // }
 }
 </script>
 
