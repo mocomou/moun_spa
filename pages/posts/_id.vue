@@ -1,12 +1,12 @@
 <template>
   <div>
     {{ post.title }}
-    <div v-html="cleanHTML" />
+    <div v-html="html" />
   </div>
 </template>
 
 <script>
-import DOMPurify from 'dompurify'
+// import DOMPurify from 'dompurify'
 const edjsHTML = require('editorjs-html')
 const edjsParser = edjsHTML()
 
@@ -17,14 +17,15 @@ export default {
       .then(res => res.data.post)
     const json = JSON.parse(post)
     const html = edjsParser.parse(json).join('')
+    console.log(html)
     // const createDOMPurify = require('dompurify')
     // const jsdom = require('jsdom').jsdom
     // const window = jsdom('').defaultView
     // const DOMPurify = createDOMPurify(window)
-    const cleanHTML = DOMPurify.sanitize(html)
+    // const cleanHTML = DOMPurify.sanitize(html)
     return {
       post,
-      cleanHTML
+      html
     }
   }
 }
