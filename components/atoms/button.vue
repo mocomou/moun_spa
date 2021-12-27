@@ -1,5 +1,5 @@
 <template>
-  <button>
+  <button @click="click">
     {{ character }}
   </button>
 </template>
@@ -9,7 +9,13 @@ export default {
   props: {
     character: {
       type: String,
-      require: true
+      required: true,
+      default: 'ボタン'
+    }
+  },
+  methods: {
+    click () {
+      console.log('foobar')
     }
   }
 }

@@ -2,14 +2,42 @@
   <nav class="sidebar">
     <ul class="sidebar__list">
       <!-- logout -->
-      <li class="sidebar__item"><NuxtLink to="/login" class="sidebar__link">ログイン</NuxtLink></li>
-      <li class="sidebar__item"><a href="#" class="sidebar__link">mounとは</a></li>
+      <li class="sidebar__item">
+        <NuxtLink to="/login" class="sidebar__link">
+          ログイン
+        </NuxtLink>
+      </li>
+      <li class="sidebar__item">
+        <a href="#" class="sidebar__link">
+          mounとは
+        </a>
+      </li>
       <!-- login -->
-      <li class="sidebar__item"><a href="#" class="sidebar__link">タイムライン</a></li>
-      <li class="sidebar__item"><a href="#" class="sidebar__link">フォロー</a></li>
-      <li class="sidebar__item"><a href="#" class="sidebar__link">いいね</a></li>
-      <li class="sidebar__item"><a href="#" class="sidebar__link">新着</a></li>
-      <li class="sidebar__item"><NuxtLink to="/logout" class="sidebar__link">ログアウト</NuxtLink></li>
+      <li class="sidebar__item">
+        <a href="#" class="sidebar__link">
+          タイムライン
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#" class="sidebar__link">
+          フォロー
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#" class="sidebar__link">
+          いいね
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <a href="#" class="sidebar__link">
+          新着
+        </a>
+      </li>
+      <li class="sidebar__item">
+        <NuxtLink to="/logout" class="sidebar__link">
+          ログアウト
+        </NuxtLink>
+      </li>
     </ul>
   </nav>
 </template>

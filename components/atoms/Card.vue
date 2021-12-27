@@ -1,32 +1,33 @@
 <template>
   <li class="card">
-    <AtomsImage
-      original-image="/images/card/card_image.jpg"
-      webp-image="/images/card/card_image.webp"
-    />
-    <h3 class="card__title">
-      {{post.title}}
-    </h3>
-    <div class="card__detail">
-      <div class="card__user">
-        <span class="card__icon">
-          <!-- {{post.icon}} -->
-        </span>
-        <NuxtLink
-          :to="`/users/${post.user_name}`"
-          class="card__link"
-        >
-          <span class="card__user-name">
-            {{post.user_name}}
+    <NuxtLink :to="`/posts/${post.id}`">
+      <AtomsImage
+        original-image="/images/card/card_image.jpg"
+        webp-image="/images/card/card_image.webp"
+      />
+      <h3 class="card__title">
+        {{ post.title }}
+      </h3>
+      <div class="card__detail">
+        <div class="card__user">
+          <span class="card__icon">
+            <!-- {{post.icon}} -->
           </span>
-        </NuxtLink>
+          <NuxtLink
+            :to="`/users/${post.user_name}`"
+            class="card__link"
+          >
+            <span class="card__user-name">
+              {{ post.user_name }}
+            </span>
+          </NuxtLink>
+        </div>
+        <span class="card__created-at">
+          {{ $dateFns.format(new Date(post.created_at), 'yyyy/MM/dd') }}
+        </span>
       </div>
-      <span class="card__created-at">
-        {{ $dateFns.format(new Date(post.created_at), 'yyyy/MM/dd') }}
-      </span>
-    </div>
+    </NuxtLink>
   </li>
-
 </template>
 
 <script>
