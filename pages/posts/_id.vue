@@ -15,8 +15,12 @@ export default {
     const url = `/api/v1/posts/${route.params.id}`
     const post = await $axios.get(url)
       .then(res => res.data.post)
-    const json = JSON.parse(post.content)
+    const json = JSON.parse(post)
     const html = edjsParser.parse(json).join('')
+    // const createDOMPurify = require('dompurify')
+    // const jsdom = require('jsdom').jsdom
+    // const window = jsdom('').defaultView
+    // const DOMPurify = createDOMPurify(window)
     const clean = DOMPurify.sanitize(html)
     return {
       post,
