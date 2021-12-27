@@ -1,23 +1,27 @@
 <template>
-  <button @click="click">
+  <button @click="$emit('click')">
     {{ character }}
   </button>
 </template>
 
 <script>
+// const edjsHTML = require('editorjs-html')
+// const edjsParser = edjsHTML()
 export default {
+  name: 'ClickMethod',
   props: {
     character: {
       type: String,
       required: true,
       default: 'ボタン'
     }
-  },
-  methods: {
-    click () {
-      console.log('foobar')
-    }
   }
+  // methods: {
+  //   click: () => {
+  //     this.$emit('save',
+  //     )
+  //   }
+  // }
 }
 </script>
 

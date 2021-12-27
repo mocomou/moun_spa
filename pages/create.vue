@@ -11,11 +11,14 @@
     <div
       id="editorjs"
     />
-    <AtomsButton
+    <clickMethod
       class="primary button"
-      @click="save"
       character="save"
-    />
+    >
+      <AtomsButton
+        @Click="save"
+      />
+    </clickMethod>
     <!-- <div @click="post" class="button">
       <AtomsButton
         class="primary"
@@ -26,9 +29,14 @@
 </template>
 
 <script>
-const edjsHTML = require('editorjs-html')
-const edjsParser = edjsHTML()
+import ClickMethod from '../components/atoms/button'
+// const edjsHTML = require('editorjs-html')
+// const edjsParser = edjsHTML()
 export default {
+  name: 'Click',
+  components: {
+    ClickMethod
+  },
   data () {
     return {
       editor: null,
@@ -42,7 +50,7 @@ export default {
     })
   },
   methods: {
-    save () {
+    save: () => {
       this.editor.save().then((outputData) => {
         const url = '/api/v1/posts'
         const params = {
@@ -55,10 +63,11 @@ export default {
             // const html = this.parseEditorjsData(json)
           })
       })
-    },
-    parseEditorjsData (editorjsData) {
-      return edjsParser.parse(editorjsData).join('')
     }
+    // save () {
+    // parseEditorjsData (editorjsData) {
+    //   return edjsParser.parse(editorjsData).join('')
+    // }
   }
 }
 </script>
