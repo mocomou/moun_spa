@@ -25,7 +25,7 @@ export default {
     return {
       editor: null,
       title: '',
-      content: ''
+      content: []
     }
   },
   mounted () {
@@ -39,9 +39,12 @@ export default {
       this.editor.save().then((outputData) => {
         const htmlArray = edjsParser.parse(outputData)
         const content = htmlArray.join('')
-        const title = this.title
         const url = '/api/v1/posts'
-        this.$axios.post(url, content, title)
+        this.$axios.post(url, {
+          title: this.title
+        }, {
+          content
+        })
           .then((res) => {
             console.log(content)
             console.log(this.title)
