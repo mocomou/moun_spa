@@ -26,6 +26,7 @@ export default {
   color: white;
   background-color: $base-font-color;
   border: none;
+  white-space: nowrap;
   font-size: 0.8rem;
   font-weight: bold;
   padding: 0.7rem 0.9rem;
@@ -49,6 +50,7 @@ export default {
 .secondary {
   color: white;
   border: none;
+  white-space: nowrap;
   // border: 2px solid $secondary-font-color;
   background-color: $secondary-font-color;
   font-size: 0.8rem;
