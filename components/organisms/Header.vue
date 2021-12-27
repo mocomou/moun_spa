@@ -3,7 +3,9 @@
     <div class="header__inner">
       <NuxtLink to="/" class="header__logo" tag="div">
         <img src="/images/header/icon.png" alt="icon" class="header__image">
-        <h1 class="header__title">moun</h1>
+        <h1 class="header__title">
+          moun
+        </h1>
       </NuxtLink>
       <NuxtLink to="/create">
         <div class="header__user">

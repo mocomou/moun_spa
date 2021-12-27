@@ -1,19 +1,27 @@
 <template>
   <div class="editor">
-    <div class="editor__wrap"><input type="text" v-model="title" class="editor__title" placeholder="タイトルを入力してください"></div>
-    <div id="editorjs" name="content" />
-      <div @click="save" class="button">
-        <AtomsButton
-          class="primary"
-          character="save"
-        />
-      </div>
-      <!-- <div @click="post" class="button">
-        <AtomsButton
-          class="primary"
-          character="post"
-        />
-      </div> -->
+    <div class="editor__wrap">
+      <input
+        v-model="title"
+        type="text"
+        class="editor__title"
+        placeholder="タイトルを入力してください"
+      >
+    </div>
+    <div
+      id="editorjs"
+    />
+    <AtomsButton
+      class="primary button"
+      @click="save"
+      character="save"
+    />
+    <!-- <div @click="post" class="button">
+      <AtomsButton
+        class="primary"
+        character="post"
+      />
+    </div> -->
   </div>
 </template>
 
@@ -24,8 +32,7 @@ export default {
   data () {
     return {
       editor: null,
-      title: '',
-      content: ''
+      title: ''
     }
   },
   mounted () {
@@ -37,18 +44,20 @@ export default {
   methods: {
     save () {
       this.editor.save().then((outputData) => {
-        const htmlArray = edjsParser.parse(outputData)
-        const content = htmlArray.join('')
-        const title = this.title
         const url = '/api/v1/posts'
-        this.$axios.post(url, content, title)
+        const params = {
+          title: this.title,
+          content: JSON.stringify(outputData)
+        }
+        this.$axios.post(url, params)
           .then((res) => {
-            console.log(content)
-            console.log(this.title)
+            // const json = JSON.parse(res.data.post.content)
+            // const html = this.parseEditorjsData(json)
           })
-      }).catch((error) => {
-        console.log('Saving failed: ', error)
       })
+    },
+    parseEditorjsData (editorjsData) {
+      return edjsParser.parse(editorjsData).join('')
     }
   }
 }
@@ -80,5 +89,10 @@ export default {
   font-weight: bold;
   max-width: 650px;
   margin: 20px auto;
+}
+
+#editorjs::v-deep .ce-block__content,
+#editorjs::v-deep .ce-toolbar__content {
+  max-width: 800px;
 }
 </style>
