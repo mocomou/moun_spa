@@ -11,13 +11,11 @@
     <div
       id="editorjs"
     />
-    <btn
+    <AtomsButton
       class="primary button"
       character="save"
       @click="save"
-    >
-      <AtomsButton />
-    </btn>
+    />
     <!-- <div @click="post" class="button">
       <AtomsButton
         class="primary"
@@ -28,14 +26,10 @@
 </template>
 
 <script>
-import Btn from '../components/atoms/button'
 const edjsHTML = require('editorjs-html')
 const edjsParser = edjsHTML()
 export default {
   name: 'Click',
-  components: {
-    Btn
-  },
   data () {
     return {
       editor: null,
