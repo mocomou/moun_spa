@@ -2,6 +2,20 @@
   <div>
     {{ post.title }}
     <div v-dompurify-html="html" />
+    <template v-if="!!loggedIn">
+      <div class="modify-btn">
+        <AtomsButton
+          class="primary button"
+          character="update"
+          @click="update"
+        />
+        <AtomsButton
+          class="primary button"
+          character="delete"
+          @click="destroy(post.id)"
+        />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -20,9 +34,38 @@ export default {
       post,
       html
     }
+  },
+  computed: {
+    loggedIn () {
+      return !!this.$auth.strategy.token.get()
+    }
+  },
+  methods: {
+    // update () {
+    //   const url = '/api/v1/posts'
+    // },
+    destroy (id) {
+      const url = '/api/v1/posts/'
+      const target = `${url}${id}`
+      this.$axios.delete(target)
+        .then((res) => {
+          confirm('この記事を削除しますか？')
+          this.$router.push('/')
+        })
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
+.modify-btn {
+  display: flex;
+
+}
+
+.button {
+  width: 120px;
+  margin-left: auto;
+  margin-right: 60px;
+}
 </style>
