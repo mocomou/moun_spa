@@ -52,8 +52,7 @@ export default {
         }
         this.$axios.post(url, params)
           .then((res) => {
-            // const json = JSON.parse(res.data.post.content)
-            // const html = this.parseEditorjsData(json)
+            this.$router.push(`/posts/${res.data.post.id}`)
           })
       })
     },
