@@ -58,11 +58,13 @@ export default {
         }
         this.$axios.post(url, params)
           .then((res) => {
-            const json = JSON.parse(res.data.post.content)
-            const html = this.parseEditorjsData(json)
-            return edjsParser.parse(html).join('')
+            // const json = JSON.parse(res.data.post.content)
+            // const html = this.parseEditorjsData(json)
           })
       })
+    },
+    parseEditorJsData (editorjsData) {
+      return edjsParser.parse(editorjsData).join('')
     }
   }
 }
