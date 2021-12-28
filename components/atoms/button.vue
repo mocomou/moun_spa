@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  name: 'Btn',
   props: {
     character: {
       type: String,
