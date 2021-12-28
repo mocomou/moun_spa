@@ -36,7 +36,8 @@
     "nuxt": "^2.15.7",
     "sass": "^1.43.4",
     "sass-loader": "^10.1.1",
-    "tls": "0.0.1"
+    "tls": "0.0.1",
+    "vue-dompurify-html": "^2.5.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

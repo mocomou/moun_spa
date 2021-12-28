@@ -1,7 +1,7 @@
 <template>
   <div>
     {{ post.title }}
-    <div v-html="html" />
+    <div v-dompurify-html="html" />
   </div>
 </template>
 
