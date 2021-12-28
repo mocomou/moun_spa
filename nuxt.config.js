@@ -74,24 +74,27 @@ export default {
     '/api/': 'http://localhost:4000'
   },
   auth: {
-    redirect: {
-      login: '/', // redirect user when not connected
-      callback: '/callback'
-    },
     strategies: {
       auth0: {
         domain: 'dev-wej6jvko.us.auth0.com',
         clientId: 'OrqdNDkuQvDyGIGe3jHDiZselOh4wtXS',
-        audience: 'https://dev-wej6jvko.us.auth0.com/api/v2/',
-        logoutRedirectUri: 'http://localhost:3000',
-        scope: ['openid', 'profile'],
-        response_type: 'id_token token',
-        token_key: 'id_token'
+        responseType: 'id_token token',
+        token: {
+          property: 'id_token',
+          type: 'Bearer',
+          maxAge: 1800
+        }
       },
       github: {
         clientId: 'f4be5d6c5a74912e8e1b',
         clientSecret: '3b033af77017004edb1cd33c6bcc045012e96c95'
       }
+    },
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/callback',
+      home: '/'
     }
   },
 
