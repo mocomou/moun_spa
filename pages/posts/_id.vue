@@ -45,9 +45,8 @@ export default {
     //   const url = '/api/v1/posts'
     // },
     destroy (id) {
-      const url = '/api/v1/posts/'
-      const target = `${url}${id}`
-      this.$axios.delete(target)
+      const url = `/api/v1/posts/${id}`
+      this.$axios.delete(url)
         .then((res) => {
           confirm('この記事を削除しますか？')
           this.$router.push('/')
