@@ -1,22 +1,25 @@
 <template>
-  <div>
-    {{ post.title }}
-    <div v-dompurify-html="html" />
-    <template v-if="!!loggedIn">
-      <div class="modify-btn">
-        <AtomsButton
-          class="primary button"
-          character="update"
-          @click="update"
-        />
-        <AtomsButton
-          class="primary button"
-          character="delete"
-          @click="destroy(post.id)"
-        />
-      </div>
-    </template>
-  </div>
+  <NuxtChild>
+    <div>
+      {{ post.title }}
+      <div v-dompurify-html="html" />
+      <template v-if="!!loggedIn">
+        <div class="modify-btn">
+          <NuxtLink :to="`${post.id}/edit`">
+            <AtomsButton
+              class="primary button"
+              character="edit"
+            />
+          </NuxtLink>
+          <AtomsButton
+            class="primary button"
+            character="delete"
+            @click="destroy(post.id)"
+          />
+        </div>
+      </template>
+    </div>
+  </NuxtChild>
 </template>
 
 <script>
@@ -41,9 +44,6 @@ export default {
     }
   },
   methods: {
-    // update () {
-    //   const url = '/api/v1/posts'
-    // },
     destroy (id) {
       const url = `/api/v1/posts/${id}`
       this.$axios.delete(url)
