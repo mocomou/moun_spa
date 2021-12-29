@@ -1,6 +1,7 @@
 <template>
-  <NuxtChild>
-    <div>
+  <div>
+    <NuxtChild />
+    <div v-if="!this.$route.path.match(/edit/)">
       {{ post.title }}
       <div v-dompurify-html="html" />
       <template v-if="!!loggedIn">
@@ -19,7 +20,7 @@
         </div>
       </template>
     </div>
-  </NuxtChild>
+  </div>
 </template>
 
 <script>
