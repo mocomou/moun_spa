@@ -1,7 +1,9 @@
 <template>
   <div>
-    <NuxtChild />
-    <div v-if="!this.$route.path.match(/edit/)">
+    <NuxtChild
+      :post="post"
+    />
+    <div v-if="!$route.path.match(/edit/)">
       {{ post.title }}
       <div v-dompurify-html="html" />
       <template v-if="!!loggedIn">
@@ -34,9 +36,16 @@ export default {
       .then(res => res.data.post)
     const json = JSON.parse(post.content)
     const html = edjsParser.parse(json).join('')
+    // console.log(post)
     return {
       post,
       html
+    }
+  },
+  data: () => {
+    return {
+      post: '',
+      html: ''
     }
   },
   computed: {

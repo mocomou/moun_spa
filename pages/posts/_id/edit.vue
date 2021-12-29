@@ -1,53 +1,38 @@
 <template>
-  <div class="editor">
-    <div class="editor__wrap">
-      <input
-        v-model="title"
-        type="text"
-        class="editor__title"
-        placeholder="タイトル"
-      >
-    </div>
-    <div
-      id="editorjs"
-    />
-    <AtomsButton
-      class="primary button"
-      character="update"
-      @click="update(post.id)"
-    />
-    <!-- <div @click="post" class="button">
-      <AtomsButton
-        class="primary"
-        character="post"
-      />
-    </div> -->
-  </div>
+  <OrganismsPostEditor
+    ref="postEditor"
+    :initial-title="post.title"
+    :initial-content="json"
+    @save="update"
+  />
 </template>
 
 <script>
-const edjsHTML = require('editorjs-html')
-const edjsParser = edjsHTML()
 export default {
-  name: 'Click',
-  data () {
+  async asyncData ({ $axios, route }) {
+    const url = `/api/v1/posts/${route.params.id}`
+    const post = await $axios.get(url)
+      .then(res => res.data.post)
+    const json = JSON.parse(post.content)
+    // console.log(post)
     return {
-      editor: null,
-      title: ''
+      post,
+      json
     }
   },
   mounted () {
     this.editor = this.$editor.EditorJS({
       holder: 'editorjs',
-      placeholder: 'テキストを入力してください'
+      placeholder: this.content
     })
   },
   methods: {
-    update (id) {
-      this.editor.save().then((outputData) => {
+    update () {
+      const id = this.$route.params.id
+      this.$refs.postEditor.editor.save().then((outputData) => {
         const url = `/api/v1/posts/${id}`
         const params = {
-          title: this.title,
+          title: this.$refs.postEditor.title,
           content: JSON.stringify(outputData)
         }
         this.$axios.patch(url, params)
@@ -55,44 +40,7 @@ export default {
             this.$router.push(`/posts/${res.data.post.id}`)
           })
       })
-    },
-    parseEditorJsData (editorjsData) {
-      return edjsParser.parse(editorjsData).join('')
     }
   }
 }
 </script>
-
-<style scoped lang="scss">
-.button {
-  width: 120px;
-  margin-left: auto;
-  margin-right: 60px;
-}
-
-.editor__button {
-  display: flex;
-}
-
-.editor__wrap {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.editor__title {
-  padding: 0;
-  width: 80%;
-  border: none;
-  outline: none;
-  font-size: 2rem;
-  font-weight: bold;
-  max-width: 650px;
-  margin: 20px auto;
-}
-
-#editorjs::v-deep .ce-block__content,
-#editorjs::v-deep .ce-toolbar__content {
-  max-width: 800px;
-}
-</style>
