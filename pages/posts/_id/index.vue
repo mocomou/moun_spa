@@ -6,7 +6,7 @@
     <div v-if="!$route.path.match(/edit/)">
       {{ post.title }}
       <div v-dompurify-html="html" />
-      <template v-if="!!loggedIn">
+      <template v-if="currentUser === post.user_name">
         <div class="modify-btn">
           <NuxtLink :to="`${post.id}/edit`">
             <AtomsButton
@@ -51,6 +51,16 @@ export default {
   computed: {
     loggedIn () {
       return !!this.$auth.strategy.token.get()
+    },
+    currentUser () {
+      const token = this.$auth.strategy.token.get()
+      const base64Url = token.split('.')[1]
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      }).join(''))
+      console.log(JSON.parse(jsonPayload))
+      return JSON.parse(jsonPayload).nickname
     }
   },
   methods: {
