@@ -1,0 +1,54 @@
+name: Deploy AWS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python 3.8 for awscli
+        uses: actions/setup-python@v2
+        with:
+          version: '3.8'
+          architecture: 'x64'
+
+      - name: Install aws cli
+        run: pip install --upgrade pip awscli
+
+      - name: Build
+        run: |
+          npm install
+          npm run generate
+
+      - name: Deploy to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws s3 sync --exact-timestamps --delete dist ${{ secrets.S3_BUCKET_NAME }}
+
+      - name: Invalidate CloudFront
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: moun-info-cicd
+          slack_username: Github
+          status: success
+        if: success()
+
+      - uses: craftech-io/slack-action@v1
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_channel: moun-info-cicd
+          slack_username: Github
+          status: failure
+        if: failure()
