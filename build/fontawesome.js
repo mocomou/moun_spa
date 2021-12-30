@@ -1,9 +1,9 @@
 const solid = [
-  'faUser',
+  'faUser'
 ]
 
 const regular = [
-  'faUser',
+  'faUser'
 ]
 
 const brands = []

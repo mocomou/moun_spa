@@ -9,7 +9,7 @@
         <label>Password</label>
         <input type="text" v-model="login.password" />
       </div> -->
-      <div @click="userLogin" type="submit" class="button">
+      <div type="submit" class="button" @click="userLogin">
         <AtomsButton
           class="primary"
           character="ログイン"
@@ -38,12 +38,7 @@ export default {
   },
   methods: {
     async userLogin () {
-      try {
-        const response = await this.$auth.login()
-        console.log(response)
-      } catch (err) {
-        console.log(err)
-      }
+      await this.$auth.login()
     }
   }
 }
