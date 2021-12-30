@@ -1,31 +1,46 @@
 <template>
-  <OrganismsCards
-    :posts="posts"
-  />
+  <div>
+    <OrganismsCards
+      :posts="posts"
+    />
+    <!-- ページネーション -->
+    <v-app class="text-center">
+      <v-pagination
+        v-model="page"
+        :length="total_pages"
+        circle
+        color="#e5a323"
+        @input="contents"
+      />
+    </v-app>
+  </div>
 </template>
 
 <script>
 export default {
-  data: () => {
+  data () {
     return {
-      posts: []
+      posts: [],
+      page: 1,
+      total_pages: null
     }
   },
-
   mounted () {
+    // await this.setPage()
     this.contents()
-    console.log(this.$store.$auth.$storage._state['_token.auth0'])
   },
-
   methods: {
     contents () {
       const url = '/api/v1/posts'
-      this.$axios.get(url)
+      const params = {
+        params: {
+          page: this.page
+        }
+      }
+      this.$axios.get(url, params)
         .then((res) => {
           this.posts = res.data.posts
-        })
-        .catch((error) => {
-          console.log(error)
+          this.total_pages = res.data.total_pages
         })
     }
   }

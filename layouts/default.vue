@@ -3,11 +3,11 @@
     <OrganismsHeader
       class="header"
     />
-    <div class="container">
-      <aside class="container__aside">
+    <div class="inner">
+      <aside class="inner__aside">
         <OrganismsSideBar />
       </aside>
-      <main class="container__main">
+      <main class="inner__main">
         <Nuxt />
       </main>
     </div>
@@ -35,13 +35,13 @@ export default {
   z-index: 100;
 }
 
-.container {
+.inner {
   margin: 0;
   display: flex;
   @include base-font();
 }
 
-.container__aside {
+.inner__aside {
   background-color: #eaeaea;
   // position: sticky;
   width: 170px;
@@ -49,7 +49,7 @@ export default {
   @include base-font();
 }
 
-.container__main {
+.inner__main {
   flex-basis: 85%;
   margin-top: $header-height;
   margin-bottom: $footer-height;
