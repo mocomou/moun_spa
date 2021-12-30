@@ -29,8 +29,6 @@ export default {
   @include max-width();
   height: $header-height;
   background-color: #202020;
-  // transition: all .2s;
-  // display: none;
 }
 
 .header__inner {
@@ -68,21 +66,4 @@ export default {
   color: white;
   font-size: 28px;
 }
-
-// @media all and (min-width: 768px) {
-//   .header {
-//     height: 120px;
-//     display: block;
-//   }
-// }
-
-// @media all and (min-width: 1024px) {
-//   .header {
-//     height: 160px;
-//   }
-// }
-
-// @media all and (min-width: 1280px) {
-// }
-
 </style>
