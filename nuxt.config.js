@@ -43,7 +43,8 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
     '@nuxtjs/date-fns',
-    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }]
+    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }],
+    '@nuxtjs/vuetify'
   ],
 
   fontawesome: {
