@@ -9,7 +9,7 @@
         v-model="page"
         :length="total_pages"
         circle
-        @input="getPage"
+        @input="contents"
       />
     </v-app>
   </div>
@@ -17,26 +17,27 @@
 
 <script>
 export default {
-  data: () => {
+  data () {
     return {
       posts: [],
       page: 1,
-      totalPages: null
+      total_pages: null
     }
   },
-  async mounted () {
-    await this.setPage()
+  mounted () {
+    // await this.setPage()
     this.contents()
-    this.getPage()
     console.log(this.$store.$auth.$storage._state['_token.auth0'])
   },
   methods: {
     contents () {
       const url = '/api/v1/posts'
-      this.$axios.get(url)
+      const params = this.page
+      this.$axios.get(url, params)
         .then((res) => {
-          console.log(res.data.posts)
+          console.log(res.data.posts[0])
           console.log(res.data.total_pages)
+          console.log(this.page)
           this.posts = res.data.posts
           this.total_pages = res.data.total_pages
         })
@@ -44,9 +45,12 @@ export default {
           console.log(error)
         })
     },
-    setPage () {
-      this.page = Number(this.$$axios.data.page) || 1
+    getPage () {
+
     }
+    // setPage () {
+    //   this.page = Number(this.$$axios.data.page) || 1
+    // }
   }
 }
 </script>
