@@ -10,8 +10,8 @@
         :length="total_pages"
         circle
         color="#68699b"
-        @input="contents"
         class="paginate"
+        @input="contents"
       />
     </v-app>
   </div>
