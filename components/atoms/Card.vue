@@ -1,6 +1,6 @@
 <template>
   <li class="card">
-    <NuxtLink :to="`/posts/${post.id}`">
+    <NuxtLink :to="`/posts/${post.id}`" class="card__link">
       <AtomsImage
         original-image="/images/card/card_image.jpg"
         webp-image="/images/card/card_image.webp"
@@ -15,7 +15,7 @@
           </span>
           <NuxtLink
             :to="`/users/${post.user_name}`"
-            class="card__link"
+            class="card__user__link"
           >
             <span class="card__user-name">
               {{ post.user_name }}
@@ -55,13 +55,23 @@ $card-height: 274px;
   height: $card-height;
 }
 
+.card__link {
+  text-decoration: none;
+  color: #333;
+}
+
+.card__link:hover {
+  opacity: 0.9;
+}
+
 .card__title {
-  margin: 12px 16px 8px 16px;
+  margin: 6px 16px 8px 16px;
   font-weight: bold;
   font-size: 1.3rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  line-height: 1.4;
 }
 
 .card__icon {
@@ -73,7 +83,7 @@ $card-height: 274px;
   margin-right: 4px;
 }
 
-.card__link {
+.card__user__link {
   text-decoration: none;
   color: #333;
 }
@@ -91,9 +101,8 @@ $card-height: 274px;
 }
 
 .card__user-name {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-left: 4px;
+  font-weight: 600;
+  // margin-left: 2px;
 }
 .card__user-name:hover {
   color:$hover-color;
@@ -101,5 +110,6 @@ $card-height: 274px;
 
 .card__created-at {
   font-size: 0.9rem;
+  color: #5f5f5f;
 }
 </style>
