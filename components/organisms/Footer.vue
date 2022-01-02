@@ -34,7 +34,7 @@ export default {
 }
 
 .footer__list {
-  padding: 0 40px;
+  padding: 0 20px 6px 20px;
   font-size: 0.5rem;
   display: flex;
   gap: 24px;
@@ -42,8 +42,19 @@ export default {
 }
 
 .footer__copy-right {
-    margin-right: 40px;
+    margin-right: 20px;
     font-size: 0.5rem;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
+}
+
+@media all and (max-width: 1023px) {
+  .footer {
+    height: $responsive-footer-height;
+  }
+
+  .footer__list {
+    padding: 0 20px 2px 20px;
+    gap: 16px;
+  }
 }
 </style>
