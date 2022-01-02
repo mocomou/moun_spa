@@ -3,7 +3,9 @@ $base-font-color: #333;
 $secondary-font-color: #bfbfbf;
 $hover-color: #898880;
 $header-height: 60px;
+$responsive-header-height: 50px;
 $footer-height: 60px;
+$responsive-footer-height: 50px;
 $btn-width: 100%;
 
 @mixin max-width {

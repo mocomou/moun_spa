@@ -29,12 +29,6 @@ export default {
   position: relative;
   min-height: 100vh;
 }
-
-.header {
-  position: fixed;
-  z-index: 100;
-}
-
 .inner {
   margin: 0;
   display: flex;
@@ -56,9 +50,20 @@ export default {
   @include base-font();
 }
 
+.header {
+  position: fixed;
+  z-index: 100;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   @include base-font();
+}
+
+@media all and (max-width: 1023px) {
+  .inner__aside {
+    display: none;
+  }
 }
 </style>
