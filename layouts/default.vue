@@ -62,6 +62,13 @@ export default {
 }
 
 @media all and (max-width: 1023px) {
+  .inner__main {
+    flex-basis: 100%;
+    margin-top: $header-height;
+    margin-bottom: $footer-height;
+    @include base-font();
+  }
+
   .inner__aside {
     display: none;
   }

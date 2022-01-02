@@ -80,37 +80,66 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.post {
-  display: block;
+  .post {
+    display: block;
+  }
+
+  .post__title {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    font-family: 'Heebo', sans-serif;
+  }
+
+  .post__content__container {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .post__content {
+    font-size: 1.1rem;
+    padding-bottom: 32px;
+  }
+
+@media all and (max-width: 1023px) {
+  .modify-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 16px;
+  }
+
+  .button {
+    width: 80px;
+    padding: 6px 8px;
+    margin: 4px 0;
+  }
 }
 
-.post__title {
-  display: block;
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px 0;
-  font-family: 'Heebo', sans-serif;
-}
+@media all and (min-width: 1024px){
+  .post__title {
+    width: 80%;
+  }
 
-.post__content__container {
-  display: block;
-  width: 80%;
-  margin: 0 auto;
-}
+  .post__content__container {
+    width: 80%;
+  }
 
-.post__content {
-  font-size: 1.2rem;
-  padding-bottom: 32px;
-}
+  .post__content {
+    font-size: 1.2rem;
+  }
 
-.modify-btn {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
-}
+  .modify-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+  }
 
-.button {
-  width: 120px;
-  margin-left: 16px;
+  .button {
+    width: 120px;
+    margin-left: 16px;
+  }
 }
 </style>
