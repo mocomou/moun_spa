@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 @import '~/assets/style/normalize.scss';
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Noto+Sans+JP:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
 .wrap {
   position: relative;
   min-height: 100vh;

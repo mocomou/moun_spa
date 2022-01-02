@@ -9,8 +9,9 @@
         v-model="page"
         :length="total_pages"
         circle
-        color="#e5a323"
+        color="#68699b"
         @input="contents"
+        class="paginate"
       />
     </v-app>
   </div>
@@ -51,8 +52,9 @@ export default {
 .cards {
   padding: 40px 0;
   gap: 50px 50px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+}
+
+::v-deep .v-application--wrap {
+  min-height: 10vh;
 }
 </style>

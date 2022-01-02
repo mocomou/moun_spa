@@ -3,9 +3,13 @@
     <NuxtChild
       :post="post"
     />
-    <div v-if="!$route.path.match(/edit/)">
-      {{ post.title }}
-      <div v-dompurify-html="html" />
+    <div v-if="!$route.path.match(/edit/)" class="post">
+      <h1 class="post__title">
+        {{ post.title }}
+      </h1>
+      <div class="post__content__container">
+        <div v-dompurify-html="html" class="post__content" />
+      </div>
       <template v-if="currentUser === post.user_name">
         <div class="modify-btn">
           <NuxtLink :to="`${post.id}/edit`">
@@ -76,14 +80,37 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.post {
+  display: block;
+}
+
+.post__title {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+  font-family: 'Heebo', sans-serif;
+}
+
+.post__content__container {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.post__content {
+  font-size: 1.2rem;
+  padding-bottom: 32px;
+}
+
 .modify-btn {
   display: flex;
-
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
 .button {
   width: 120px;
-  margin-left: auto;
-  margin-right: 60px;
+  margin-left: 16px;
 }
 </style>
