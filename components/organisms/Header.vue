@@ -13,11 +13,9 @@
             <font-awesome-icon :icon="['far', 'user']" class="header__user-icon" />
           </div>
         </NuxtLink>
-        <NuxtLink to="#">
-          <div class="header__menu">
-            <font-awesome-icon :icon="['fas', 'bars']" class="header__menu-icon" />
-          </div>
-        </NuxtLink>
+        <AtomsMenu
+          class="header__menu"
+        />
       </div>
     </div>
   </header>
@@ -73,7 +71,7 @@ export default {
   color: white;
   font-size: 18px;
 }
-.header__menu-icon {
+.header__menu {
   color: white;
   font-size:16px;
   margin-left: 12px;
@@ -96,15 +94,16 @@ export default {
   .header__user-icon {
   color: white;
   font-size: 28px;
-}
+  }
 
   .header__user-icon:hover {
   opacity: 0.8;
-}
+  }
 
-  .header__menu-icon {
+  .header__menu {
     display: none;
   }
+
 }
 
 </style>
