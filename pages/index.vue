@@ -53,7 +53,6 @@ export default {
   padding: 40px 0;
   gap: 50px 50px;
 }
-
 ::v-deep .v-application--wrap {
   min-height: 10vh;
 }

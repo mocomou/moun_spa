@@ -30,7 +30,7 @@ export default {
   min-height: 100vh;
 }
 .inner {
-  margin: 0;
+  // margin: 0;
   display: flex;
   @include base-font();
 }
