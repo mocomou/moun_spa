@@ -120,11 +120,11 @@ export default {
 
 @media all and (min-width: 1024px){
   .post__title {
-    width: 80%;
+    width: 90%;
   }
 
   .post__content__container {
-    width: 80%;
+    width: 90%;
   }
 
   .post__content {

@@ -14,6 +14,7 @@ export default ({ $axios }, inject) => {
         holder,
         placeholder,
         data,
+        minHeight: 0,
         tools: {
           header: {
             class: Header,
