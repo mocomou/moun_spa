@@ -27,9 +27,8 @@ export default {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   grid-gap: 40px 40px;
   gap: 40px 40px;
-  padding: 0 auto;
-  margin: 0;
 }
 </style>

@@ -29,14 +29,8 @@ export default {
   position: relative;
   min-height: 100vh;
 }
-
-.header {
-  position: fixed;
-  z-index: 100;
-}
-
 .inner {
-  margin: 0;
+  // margin: 0;
   display: flex;
   @include base-font();
 }
@@ -56,9 +50,27 @@ export default {
   @include base-font();
 }
 
+.header {
+  position: fixed;
+  z-index: 100;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   @include base-font();
+}
+
+@media all and (max-width: 1023px) {
+  .inner__main {
+    flex-basis: 100%;
+    margin-top: $header-height;
+    margin-bottom: $footer-height;
+    @include base-font();
+  }
+
+  .inner__aside {
+    display: none;
+  }
 }
 </style>

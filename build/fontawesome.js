@@ -1,5 +1,6 @@
 const solid = [
-  'faUser'
+  'faUser',
+  'faBars'
 ]
 
 const regular = [
