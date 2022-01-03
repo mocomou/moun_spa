@@ -42,6 +42,7 @@ export default {
         .then((res) => {
           this.posts = res.data.posts
           this.total_pages = res.data.total_pages
+          scrollTo(0, 0)
         })
     }
   }
