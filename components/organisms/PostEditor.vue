@@ -11,17 +11,6 @@
     <div
       id="editorjs"
     />
-    <AtomsButton
-      class="primary button"
-      character="update"
-      @click="$emit('save')"
-    />
-    <!-- <div @click="post" class="button">
-      <AtomsButton
-        class="primary"
-        character="post"
-      />
-    </div> -->
   </div>
 </template>
 
@@ -56,13 +45,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.button {
-  width: 80px;
-  padding: 6px 8px;
-  margin-left: auto;
-  margin-right: 16px;
-}
-
 .editor__button {
   display: flex;
 }
@@ -96,11 +78,6 @@ export default {
 }
 
 @media all and (min-width: 1024px) {
-  .button {
-    width: 120px;
-    margin-left: auto;
-    margin-right: 60px;
-  }
   .editor__title {
     font-size: 2rem;
     width: 90%;

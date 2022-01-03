@@ -105,16 +105,11 @@ export default {
 
 @media all and (max-width: 1023px) {
   .modify-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 16px;
+    @include div-phone-btn();
   }
 
   .button {
-    width: 80px;
-    padding: 6px 8px;
-    margin: 4px 0;
+    @include phone-btn();
   }
 }
 
@@ -132,14 +127,11 @@ export default {
   }
 
   .modify-btn {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
+    @include div-pc-btn();
   }
 
   .button {
-    width: 120px;
-    margin-left: 16px;
+    @include pc-btn();
   }
 }
 </style>
