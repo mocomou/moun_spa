@@ -2,11 +2,11 @@
   <div class="menu">
     <button
       class="hamburger"
-      @click="active=!active"
+      @click="$store.commit('toggleMenu')"
     >
       <span
         class="hamburger__line"
-        :class="{ open: active }"
+        :class="{ open: $store.state.active }"
       >
         <span class="hamburger__name">
           メニューを開閉する
@@ -15,7 +15,7 @@
     </button>
     <nav
       class="menu__nav"
-      :class="{ open: active }"
+      :class="{ open: $store.state.active }"
     >
       <ul class="menu__list">
         <!-- logout -->

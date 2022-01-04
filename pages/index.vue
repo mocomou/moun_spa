@@ -26,6 +26,9 @@ export default {
       total_pages: null
     }
   },
+  fetch ({ store }) {
+    store.commit('resetMenu')
+  },
   mounted () {
     // await this.setPage()
     this.contents()
