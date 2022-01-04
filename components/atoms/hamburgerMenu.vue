@@ -65,13 +65,13 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      active: false
-    }
-  }
-}
+// export default {
+//   data () {
+//     return {
+//       active: false
+//     }
+//   }
+// }
 </script>
 
 <style scoped lang="scss">
@@ -83,7 +83,9 @@ export default {
   background-color: #203744;
   background-image: url("./static/images/hamburger/background.JPG");
   position: fixed;
-  display: flex;
+  z-index: -100;
+  // display: flex;
+  display: none;
   justify-content: center;
   text-align: center;
   height: 100%;
@@ -91,12 +93,22 @@ export default {
   left: 0;
   width: 100%;
   transition: all .5s;
-  opacity: 0;
+  // opacity: 0;
 }
 
 .menu__nav.open {
-  top: $responsive-header-height;
-  opacity: 0.8;
+  // opacity: 0.8;
+  display: flex;
+  animation: openNav 0.5s forwards;
+}
+
+@keyframes openNav {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
 }
 
 .menu__list {
@@ -163,8 +175,10 @@ export default {
 
 .hamburger__name {
   display: block;
-  width: 0px;
-  height: 0px;
+  width: 1px;
+  height: 1px;
   visibility: hidden;
+  overflow: hidden;
+  white-space: nowrap;
 }
 </style>
