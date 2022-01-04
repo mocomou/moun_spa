@@ -114,6 +114,17 @@ export default {
 }
 
 @media all and (min-width: 1024px){
+  .post__content::v-deep p,
+  .post__content::v-deep li,
+  .post__content::v-deep h1,
+  .post__content::v-deep h2,
+  .post__content::v-deep h3,
+  .post__content::v-deep h4,
+  .post__content::v-deep h5,
+  .post__content::v-deep h6 {
+    padding-bottom: 16px;
+  }
+
   .post__title {
     width: 90%;
   }
