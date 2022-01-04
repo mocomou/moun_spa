@@ -1,22 +1,10 @@
 <template>
   <div>
     <form @submit.prevent="userLogin">
-      <!-- <div>
-        <label>Username</label>
-        <input type="text" v-model="login.username" />
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="text" v-model="login.password" />
-      </div> -->
       <div type="submit" class="button" @click="userLogin">
         <AtomsButton
           class="primary"
           character="ログイン"
-        />
-        <AtomsButton
-          class="secondary"
-          character="ログアウト"
         />
       </div>
     </form>
@@ -32,6 +20,9 @@ export default {
         password: ''
       }
     }
+  },
+  fetch ({ store }) {
+    store.commit('resetMenu')
   },
   mounted () {
     // this.$auth.loginWith('auth0')

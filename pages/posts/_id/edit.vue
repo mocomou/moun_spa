@@ -23,7 +23,6 @@ export default {
     const post = await $axios.get(url)
       .then(res => res.data.post)
     const json = JSON.parse(post.content)
-    // console.log(post)
     return {
       post,
       json

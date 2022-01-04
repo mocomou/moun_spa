@@ -1,38 +1,22 @@
 <template>
   <div class="menu">
-    <!--
-    <button
-      class="header__menu"
-      @click="active=!active"
-    >
-      <font-awesome-icon :icon="['fas', 'bars']" class="header__menu-hamburger"/>
-    </button>
-    -->
     <button
       class="hamburger"
-      @click="active=!active"
+      @click="$store.commit('toggleMenu')"
     >
       <span
         class="hamburger__line"
-        :class="{ open: active }"
+        :class="{ open: $store.state.active }"
       >
         <span class="hamburger__name">
           メニューを開閉する
         </span>
       </span>
     </button>
-    <!-- <button
-      class="header__menu"
-    >
-      <font-awesome-icon :icon="['fas', 'times']" class="header__menu-cross" />
-    </button> -->
-    <!--
-    <nav v-show="active" class="menu__nav">
-    -->
     <nav
       class="menu__nav"
-      :class="{ open: active }"
-     >
+      :class="{ open: $store.state.active }"
+    >
       <ul class="menu__list">
         <!-- logout -->
         <template v-if="!loggedIn">
@@ -95,24 +79,30 @@ export default {
   position: relative;
 }
 
-.header__menu {
-  color: white;
-}
-
 .menu__nav {
-  background-color: #404040;
+  background-color: #203744;
+  background-image: url("./static/images/hamburger/background.JPG");
   position: fixed;
-  top: $header-height;
-  // top: -100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  top: $responsive-header-height;
   left: 0;
   width: 100%;
-  transition: all 1s;
+  transition: all .5s;
   opacity: 0;
 }
 
 .menu__nav.open {
-  top: $header-height;
-  opacity: 1;
+  top: $responsive-header-height;
+  opacity: 0.8;
+}
+
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .menu__item {
@@ -120,19 +110,17 @@ export default {
 }
 
 .menu__link {
-  display: block;
-  color: white;
   text-decoration: none;
-  padding: 8px 8px 8px 40px;
+  color: white;
+  display: block;
+  padding: 12px 12px;
+  font-size: 1.3rem;
 }
-
-$menuSize: 16px;
-$menuLineHeight: 2px;
 
 .hamburger {
   position: relative;
-  width: $menuSize;
-  height: $menuSize;
+  width: $menu-size;
+  height: $menu-size;
 }
 
 .hamburger__line,
@@ -140,9 +128,9 @@ $menuLineHeight: 2px;
 .hamburger__line::before {
   display: block;
   background-color: white;
-  width: $menuSize;
-  height: $menuLineHeight;
-  transition: all .5s;
+  width: $menu-size;
+  height: $menu-line-height;
+  transition: all .3s;
 }
 
 .hamburger__line::after,
@@ -165,12 +153,12 @@ $menuLineHeight: 2px;
 
 .hamburger__line.open::before {
   top: 50%;
-  transform: translateY(-50%) rotate(-45deg);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .hamburger__line.open::after {
   top: 50%;
-  transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 .hamburger__name {

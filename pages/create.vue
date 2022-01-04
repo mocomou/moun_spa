@@ -16,6 +16,9 @@
 
 <script>
 export default {
+  fetch ({ store }) {
+    store.commit('resetMenu')
+  },
   methods: {
     save () {
       this.$refs.postEditor.editor.save().then((outputData) => {

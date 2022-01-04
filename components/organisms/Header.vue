@@ -13,7 +13,7 @@
             <font-awesome-icon :icon="['far', 'user']" class="header__user-icon" />
           </div>
         </NuxtLink>
-        <AtomsMenu
+        <AtomsHamburgerMenu
           class="header__menu"
         />
       </div>
@@ -32,7 +32,7 @@ export default {
   // top: -webkit-sticky;
   top: 0;
   @include max-width();
-  height: $header-height;
+  height: $responsive-header-height;
   background-color: #202020;
   // transition: all .2s;
   // display: none;
@@ -41,7 +41,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: $header-height;
+  height: $responsive-header-height;
   margin: 0 20px;
 }
 
