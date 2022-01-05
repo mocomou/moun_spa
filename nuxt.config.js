@@ -78,7 +78,7 @@ export default {
     strategies: {
       auth0: {
         domain: 'dev-wej6jvko.us.auth0.com',
-        clientId: 'OrqdNDkuQvDyGIGe3jHDiZselOh4wtXS',
+        clientId: process.env.AUTH0_CLIENT_ID ? process.env.AUTH0_CLIENT_ID : 'OrqdNDkuQvDyGIGe3jHDiZselOh4wtXS',
         responseType: 'id_token token',
         token: {
           property: 'id_token',

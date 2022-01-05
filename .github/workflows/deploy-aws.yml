@@ -21,6 +21,8 @@ jobs:
         run: pip install --upgrade pip awscli
 
       - name: Build
+        env:
+          AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID }}
         run: |
           npm install
           npm run generate
