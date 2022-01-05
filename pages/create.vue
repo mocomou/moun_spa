@@ -17,7 +17,7 @@
 <script>
 export default {
   fetch ({ store }) {
-    store.commit('resetMenu')
+    store.commit('menu/resetMenu')
   },
   methods: {
     save () {

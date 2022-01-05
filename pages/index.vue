@@ -27,7 +27,7 @@ export default {
     }
   },
   fetch ({ store }) {
-    store.commit('resetMenu')
+    store.commit('menu/resetMenu')
   },
   mounted () {
     // await this.setPage()
