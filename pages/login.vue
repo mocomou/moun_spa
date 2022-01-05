@@ -22,7 +22,7 @@ export default {
     }
   },
   fetch ({ store }) {
-    store.commit('resetMenu')
+    store.commit('menu/resetMenu')
   },
   mounted () {
     // this.$auth.loginWith('auth0')
