@@ -83,9 +83,10 @@
   background-color: #203744;
   background-image: url("./static/images/hamburger/background.JPG");
   position: fixed;
-  z-index: -100;
-  // display: flex;
-  display: none;
+  // z-index: -100;
+  display: flex;
+  animation: closeNav 0.5s forwards;
+  // display: none;
   justify-content: center;
   text-align: center;
   height: 100%;
@@ -93,12 +94,13 @@
   left: 0;
   width: 100%;
   transition: all .5s;
+  // transition-property: all;
   // opacity: 0;
 }
 
 .menu__nav.open {
   // opacity: 0.8;
-  display: flex;
+  // display: flex;
   animation: openNav 0.5s forwards;
 }
 
@@ -108,6 +110,19 @@
   }
   100% {
     opacity: 0.8;
+  }
+}
+
+@keyframes closeNav {
+  0% {
+    opacity: 0.8;
+  }
+  99% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2000px);
   }
 }
 
