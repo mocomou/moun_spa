@@ -1,7 +1,7 @@
 <template>
   <div class="setting">
     <input v-model="user_name" class="setting__user-name">
-    <input id="file" ref="user_icon" type="file" @change="fileUpload()">
+    <input id="file" type="file" @change="fileUpload( $event )">
     <div class="update-btn">
       <AtomsButton
         class="primary button"
@@ -14,18 +14,25 @@
 
 <script>
 export default ({
+  // props: {
+  //   user: {
+  //     type: Object,
+  //     require: true,
+  //     default: () => {}
+  //   }
+  // },
   data () {
     return {
-      user_name: '',
-      user_icon: ''
+      user_name: 'aaa',
+      user_icon: null
     }
   },
   methods: {
-    fileUpload () {
-      this.user_icon = this.$refs.user_icon.files[0]
+    fileUpload (event) {
+      this.user_icon = event.target.files[0]
     },
     update () {
-      const params = 12
+      const params = 'aaabbb'
       const url = `/api/v1/users/${params}`
       const formData = new FormData()
       formData.append('user_icon', this.user_icon)
@@ -38,7 +45,11 @@ export default ({
           }
         })
         .then((res) => {
-          this.$router.push(`/users/${res.data.user.user_name}`)
+          // this.$router.push(`/users/${res.data.user.user_name}`)
+          console.log(res)
+        })
+        .catch((error) => {
+          console.log(error)
         })
     }
   }
