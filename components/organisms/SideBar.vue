@@ -8,19 +8,19 @@
             ログイン
           </NuxtLink>
         </li>
-        <li class="sidebar__item">
+        <!-- <li class="sidebar__item">
           <a href="#" class="sidebar__link">
             mounとは
           </a>
-        </li>
+        </li> -->
       </template>
       <!-- login -->
       <template v-else>
-        <li class="sidebar__item">
+        <!-- <li class="sidebar__item">
           <a href="#" class="sidebar__link">
             タイムライン
           </a>
-        </li>
+        </li> -->
         <li class="sidebar__item">
           <a href="#" class="sidebar__link">
             フォロー
@@ -31,11 +31,11 @@
             いいね
           </a>
         </li>
-        <li class="sidebar__item">
+        <!-- <li class="sidebar__item">
           <a href="#" class="sidebar__link">
             新着
           </a>
-        </li>
+        </li> -->
         <li class="sidebar__item">
           <NuxtLink to="/logout" class="sidebar__link">
             ログアウト
