@@ -2,14 +2,14 @@
   <div>
     <div>
       <OrganismsUserProfile
-        :userIcon="userIcon"
-        :userName="userName"
+        :icon="userIcon"
+        :name="userName"
       />
     </div>
     <div>
       <OrganismsSetting
-        :userIcon="userIcon"
-        :userName="userName"
+        :icon="userIcon"
+        :name="userName"
       />
     </div>
   </div>
@@ -21,16 +21,6 @@ export default {
     const url = `/api/v1/users/${route.params.user}`
     const user = await $axios.get(url)
       .then(res => res.data.user)
-      // .then((res) => {
-      //   const userIcon = res.data.user.user_icon
-      //   const userName = res.data.user.user_name
-      //   console.log(userIcon)
-      //   console.log(userName)
-      //   return {
-      //     userIcon,
-      //     userName
-      //   }
-      // })
     const userName = user.user_name
     const userIcon = user.user_icon
     return {

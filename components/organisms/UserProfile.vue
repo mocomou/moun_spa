@@ -1,19 +1,19 @@
 <template>
   <div>
-    <img :src="`${userIcon}`" alt="user_icon">
-    <h2>{{ userName }}</h2>
+    <img :src="`${icon}`" alt="user_icon">
+    <h2>{{ name }}</h2>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    userIcon: {
-      type: File,
+    icon: {
+      type: String,
       require: true,
       default: ''
     },
-    userName: {
+    name: {
       type: String,
       require: true,
       default: ''

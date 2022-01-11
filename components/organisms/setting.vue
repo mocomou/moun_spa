@@ -20,12 +20,12 @@
 <script>
 export default ({
   props: {
-    userIcon: {
-      type: File,
+    icon: {
+      type: String,
       require: true,
       default: ''
     },
-    userName: {
+    name: {
       type: String,
       require: true,
       default: ''
@@ -33,8 +33,8 @@ export default ({
   },
   data () {
     return {
-      user_icon: this.userIcon,
-      user_name: this.userName
+      user_icon: this.icon,
+      user_name: this.name
     }
   },
   methods: {
