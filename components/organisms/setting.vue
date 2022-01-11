@@ -2,7 +2,11 @@
   <div class="setting">
     <input id="file" type="file" @change="fileUpload( $event )">
     <img :src="user_icon" alt="user_icon" class="user_icon">
-    <input v-model="user_name" class="setting__user-name">
+    <input
+      v-model="user_name"
+      class="setting__user-name"
+      placeholder="`${user_name}`"
+    >
     <div class="update-btn">
       <AtomsButton
         class="primary button"
@@ -15,17 +19,22 @@
 
 <script>
 export default ({
-  // props: {
-  //   user: {
-  //     type: Object,
-  //     require: true,
-  //     default: () => {}
-  //   }
-  // },
+  props: {
+    userIcon: {
+      type: File,
+      require: true,
+      default: ''
+    },
+    userName: {
+      type: String,
+      require: true,
+      default: ''
+    }
+  },
   data () {
     return {
-      user_name: 'YamadaHanako',
-      user_icon: null
+      user_icon: this.userIcon,
+      user_name: this.userName
     }
   },
   methods: {
