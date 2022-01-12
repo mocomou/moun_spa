@@ -39,8 +39,8 @@ export default ({
   },
   methods: {
     fileUpload (event) {
-      const userIcon = event.target.files[0]
-      this.user_icon = window.URL.createObjectURL(userIcon)
+      this.user_icon = event.target.files[0]
+      this.user_icon = window.URL.createObjectURL(this.user_icon)
     },
     update () {
       const url = `/api/v1/users/${this.user_name}`
