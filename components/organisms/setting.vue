@@ -1,7 +1,7 @@
 <template>
   <div class="setting">
     <input id="file" type="file" @change="fileUpload( $event )">
-    <img :src="user_icon" alt="user_icon" class="user_icon">
+    <img :src="preview" alt="user_icon" class="user_icon">
     <input
       v-model="user_name"
       class="setting__user-name"
@@ -33,14 +33,15 @@ export default ({
   },
   data () {
     return {
-      user_icon: this.icon,
+      preview: this.icon,
+      user_icon: null,
       user_name: this.name
     }
   },
   methods: {
     fileUpload (event) {
       this.user_icon = event.target.files[0]
-      this.user_icon = window.URL.createObjectURL(this.user_icon)
+      this.preview = window.URL.createObjectURL(this.user_icon)
     },
     update () {
       const url = `/api/v1/users/${this.user_name}`
