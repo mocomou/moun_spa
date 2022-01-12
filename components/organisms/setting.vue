@@ -43,8 +43,7 @@ export default ({
       this.user_icon = window.URL.createObjectURL(userIcon)
     },
     update () {
-      const params = 'YamadaHanako'
-      const url = `/api/v1/users/${params}`
+      const url = `/api/v1/users/${this.user_name}`
       const formData = new FormData()
       formData.append('user_icon', this.user_icon)
       formData.append('user_name', this.user_name)
@@ -56,7 +55,7 @@ export default ({
           }
         })
         .then((res) => {
-          // this.$router.push(`/users/${res.data.user.user_name}`)
+          this.$router.push(`/users/${res.data.user.user_name}`)
         })
         .catch((error) => {
           console.log(error)

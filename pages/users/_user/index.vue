@@ -27,12 +27,6 @@ export default {
       userName,
       userIcon
     }
-  },
-  data: () => {
-    return {
-      userIcon: '',
-      userName: ''
-    }
   }
 }
 </script>
