@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <img :src="`${icon}`" alt="user_icon">
-    <h2>{{ name }}</h2>
+  <div class="userProfile">
+    <img :src="`${icon}`" alt="user_icon" class="userProfile__icon">
+    <h2 class="userProfile__name">{{ name }}</h2>
   </div>
 </template>
 
@@ -23,11 +23,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-img {
+.userProfile {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.userProfile__icon {
   height: 100px;
   width: 100px;
 }
-h2 {
-  color: black;
+.userProfile__name {
+  padding-left: 20px;
 }
 </style>
