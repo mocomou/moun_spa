@@ -72,7 +72,8 @@ export default {
     proxy: true
   },
   proxy: {
-    '/api/': 'http://localhost:4000'
+    '/api/': 'http://localhost:4000',
+    '/rails/': 'http://localhost:4000'
   },
   auth: {
     strategies: {

@@ -1,27 +1,38 @@
 <template>
   <div>
-    <OrganismsSetting />
+    <div>
+      <OrganismsUserProfile
+        :icon="userIcon"
+        :name="userName"
+      />
+    </div>
+    <div>
+      <OrganismsSetting
+        :icon="userIcon"
+        :name="userName"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-export default ({
-  // async asyncData ({ $axios, route }) {
-  //   const url = `/api/v1/users/${route.params.user}`
-  //   await $axios.get(url)
-  //     // .then(res => res.data.user)
-  //     .then((res) => {
-  //       console.log(res)
-  //     })
-  //   return {
-  //     user
-  //   }
-  // }
-  // mounted () {
-  //   console.log(this.user)
-  // }
-})
+export default {
+  async asyncData ({ $axios, route }) {
+    const url = `/api/v1/users/${route.params.user}`
+    const user = await $axios.get(url)
+      .then(res => res.data.user)
+    const userName = user.user_name
+    const userIcon = user.user_icon
+    return {
+      userName,
+      userIcon
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
+p {
+  color: black;
+}
 </style>

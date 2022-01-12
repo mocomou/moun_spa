@@ -1,7 +1,12 @@
 <template>
   <div class="setting">
-    <input v-model="user_name" class="setting__user-name">
     <input id="file" type="file" @change="fileUpload( $event )">
+    <img :src="user_icon" alt="user_icon" class="user_icon">
+    <input
+      v-model="user_name"
+      class="setting__user-name"
+      placeholder="`${user_name}`"
+    >
     <div class="update-btn">
       <AtomsButton
         class="primary button"
@@ -14,26 +19,31 @@
 
 <script>
 export default ({
-  // props: {
-  //   user: {
-  //     type: Object,
-  //     require: true,
-  //     default: () => {}
-  //   }
-  // },
+  props: {
+    icon: {
+      type: String,
+      require: true,
+      default: ''
+    },
+    name: {
+      type: String,
+      require: true,
+      default: ''
+    }
+  },
   data () {
     return {
-      user_name: 'aaa',
-      user_icon: null
+      user_icon: this.icon,
+      user_name: this.name
     }
   },
   methods: {
     fileUpload (event) {
       this.user_icon = event.target.files[0]
+      this.user_icon = window.URL.createObjectURL(this.user_icon)
     },
     update () {
-      const params = 'aaabbb'
-      const url = `/api/v1/users/${params}`
+      const url = `/api/v1/users/${this.user_name}`
       const formData = new FormData()
       formData.append('user_icon', this.user_icon)
       formData.append('user_name', this.user_name)
@@ -45,8 +55,7 @@ export default ({
           }
         })
         .then((res) => {
-          // this.$router.push(`/users/${res.data.user.user_name}`)
-          console.log(res)
+          this.$router.push(`/users/${res.data.user.user_name}`)
         })
         .catch((error) => {
           console.log(error)
@@ -58,10 +67,17 @@ export default ({
 
 <style scoped lang="scss">
 .setting__user-name {
-  border: solid 2px gray;
+  font-size: 1.8rem;
+  background-color: #fafafa;
+  outline: none;
 }
 
 .setting__user-icon {
+  height: 100px;
+  width: 100px;
+}
+
+.user_icon {
   height: 100px;
   width: 100px;
 }
