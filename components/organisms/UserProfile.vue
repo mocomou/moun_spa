@@ -1,7 +1,11 @@
 <template>
   <div class="userProfile">
     <img :src="`${icon}`" alt="user_icon" class="userProfile__icon">
-    <h2 class="userProfile__name">{{ name }}</h2>
+    <h2
+      class="userProfile__name"
+    >
+      {{ name }}
+    </h2>
   </div>
 </template>
 
@@ -26,7 +30,7 @@ export default {
 .userProfile {
   display: flex;
   align-items: center;
-  margin-left: 20px;
+  margin: 24px 20px;
 }
 .userProfile__icon {
   height: 100px;
