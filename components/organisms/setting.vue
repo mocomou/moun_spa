@@ -92,6 +92,7 @@ export default ({
 .setting__profile-btn-wrap {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .setting__preview-icon {
