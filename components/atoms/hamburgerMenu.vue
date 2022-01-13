@@ -35,22 +35,12 @@
         <template v-else>
           <li class="menu__item">
             <a href="#" class="menu__link">
-              タイムライン
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">
               フォロー
             </a>
           </li>
           <li class="menu__item">
             <a href="#" class="menu__link">
               いいね
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">
-              新着
             </a>
           </li>
           <li class="menu__item">
@@ -65,13 +55,13 @@
 </template>
 
 <script>
-// export default {
-//   data () {
-//     return {
-//       active: false
-//     }
-//   }
-// }
+export default {
+  computed: {
+    loggedIn () {
+      return !!this.$auth.strategy.token.get()
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
