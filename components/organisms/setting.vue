@@ -1,19 +1,23 @@
 <template>
   <div class="setting">
-    <input id="file" type="file" @change="fileUpload( $event )">
-    <img :src="preview" alt="user_icon" class="user_icon">
-    <input
-      v-model="user_name"
-      class="setting__user-name"
-      placeholder="`${user_name}`"
-    >
-    <div class="update-btn">
-      <AtomsButton
-        class="primary button"
-        character="update"
-        @click="update()"
-      />
+    <div class="setting__profile-btn-wrap">
+      <div class="setting__profile-wrap">
+        <img :src="preview" alt="user_icon" class="setting__preview-icon">
+        <input
+        v-model="user_name"
+        class="setting__user-name"
+        placeholder="`${user_name}`"
+        >
+      </div>
+      <div class="update-btn">
+        <AtomsButton
+          class="primary button"
+          character="update"
+          @click="update()"
+        />
+      </div>
     </div>
+    <input class="setting__user-icon" type="file" @change="fileUpload( $event )">
   </div>
 </template>
 
@@ -67,22 +71,33 @@ export default ({
 </script>
 
 <style scoped lang="scss">
+.setting {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 20px;
+
+}
+
+.setting__profile-wrap {
+  display: flex;
+}
+
 .setting__user-name {
-  font-size: 1.8rem;
-  background-color: #fafafa;
+  padding-left: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
   outline: none;
 }
 
-.setting__user-icon {
+.setting__profile-btn-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting__preview-icon {
   height: 100px;
   width: 100px;
 }
-
-.user_icon {
-  height: 100px;
-  width: 100px;
-}
-
 .update__btn {
   @include div-pc-btn();
 }
