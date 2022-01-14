@@ -98,6 +98,9 @@ export default ({
 .setting__preview-icon {
   height: 100px;
   width: 100px;
+  object-fit: cover;
+  border: 1px solid gray;
+  border-radius: 100vh;
 }
 .update__btn {
   @include div-pc-btn();
