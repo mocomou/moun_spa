@@ -4,9 +4,9 @@
       <div class="setting__profile-wrap">
         <img :src="preview" alt="user_icon" class="setting__preview-icon">
         <input
-        v-model="user_name"
-        class="setting__user-name"
-        placeholder="`${user_name}`"
+          v-model="user_name"
+          class="setting__user-name"
+          placeholder="`${user_name}`"
         >
       </div>
       <div class="update-btn">
