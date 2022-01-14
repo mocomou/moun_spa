@@ -21,15 +21,15 @@
         <!-- logout -->
         <template v-if="!loggedIn">
           <li class="menu__item">
-            <NuxtLink to="/login" class="menu__link">
+            <button class="menu__link" @click="userLogin ()">
               ログイン
-            </NuxtLink>
+            </button>
           </li>
-          <li class="menu__item">
+          <!-- <li class="menu__item">
             <a href="#" class="menu__link">
               mounとは
             </a>
-          </li>
+          </li> -->
         </template>
         <!-- login -->
         <template v-else>
@@ -59,6 +59,11 @@ export default {
   computed: {
     loggedIn () {
       return !!this.$auth.strategy.token.get()
+    }
+  },
+  methods: {
+    async userLogin () {
+      await this.$auth.login()
     }
   }
 }

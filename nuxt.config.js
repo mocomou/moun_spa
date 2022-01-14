@@ -96,7 +96,7 @@ export default {
       login: '/',
       logout: '/',
       callback: '/callback',
-      home: '/'
+      home: '/initial'
     }
   },
 
