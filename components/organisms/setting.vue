@@ -99,7 +99,6 @@ export default ({
   height: 100px;
   width: 100px;
   object-fit: cover;
-  border: 1px solid gray;
   border-radius: 100vh;
 }
 .update__btn {

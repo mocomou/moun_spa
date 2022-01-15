@@ -10,9 +10,10 @@
       </h3>
       <div class="card__detail">
         <div class="card__user">
-          <span class="card__icon">
-            <!-- {{post.icon}} -->
-          </span>
+          <AtomsIcon
+            :icon="icon"
+            class="card__icon"
+          />
           <NuxtLink
             :to="`/users/${post.user_name}`"
             class="card__user__link"
@@ -75,11 +76,8 @@ $card-height: 274px;
 }
 
 .card__icon {
-  display: inline-block;
   width: 40px;
   height: 40px;
-  border-radius: 100vh;
-  background-color: gray;
   margin-right: 4px;
 }
 
