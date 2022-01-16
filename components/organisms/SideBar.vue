@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     async userLogin () {
+      console.log(this.$auth)
       await this.$auth.login()
     }
   }

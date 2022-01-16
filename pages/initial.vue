@@ -27,7 +27,7 @@ export default {
   data () {
     return {
       preview: this.user_icon,
-      user_icon: 'static/images/userDefault/icon.png',
+      user_icon: null,
       user_name: ''
     }
   },
@@ -35,6 +35,25 @@ export default {
     fileUpload (event) {
       this.user_icon = event.target.files[0]
       this.preview = window.URL.createObjectURL(this.user_icon)
+    },
+    create () {
+      const url = '/api/v1/users'
+      const formData = new FormData()
+      formData.append('user_icon', this.user_icon)
+      formData.append('user_name', this.user_name)
+      this.$axios.post(url,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        .then((res) => {
+          this.$router.push('/')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
   }
 }
