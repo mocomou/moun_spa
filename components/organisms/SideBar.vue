@@ -4,9 +4,9 @@
       <!-- logout -->
       <template v-if="!loggedIn">
         <li class="sidebar__item">
-          <NuxtLink to="/login" class="sidebar__link">
+          <button class="sidebar__link" @click="userLogin ()">
             ログイン
-          </NuxtLink>
+          </button>
         </li>
         <!-- <li class="sidebar__item">
           <a href="#" class="sidebar__link">
@@ -51,6 +51,12 @@ export default {
   computed: {
     loggedIn () {
       return !!this.$auth.strategy.token.get()
+    }
+  },
+  methods: {
+    async userLogin () {
+      console.log(this.$auth)
+      await this.$auth.login()
     }
   }
 }

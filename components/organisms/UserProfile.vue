@@ -1,6 +1,9 @@
 <template>
   <div class="userProfile">
-    <img :src="`${icon}`" alt="user_icon" class="userProfile__icon">
+    <AtomsIcon
+      :icon="icon"
+      class="userProfile__icon"
+    />
     <h2
       class="userProfile__name"
     >
