@@ -76,6 +76,7 @@ export default ({
 .setting {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   margin: 24px 20px;
 
 }
