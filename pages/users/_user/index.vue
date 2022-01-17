@@ -12,6 +12,20 @@
         :name="userName"
       />
     </div>
+    <OrganismsCards
+      :posts="userPosts"
+    />
+    <!-- ページネーション -->
+    <v-app class="text-center">
+      <v-pagination
+        v-model="page"
+        :length="total_pages"
+        circle
+        color="#68699b"
+        class="paginate"
+        @input="contents"
+      />
+    </v-app>
   </div>
 </template>
 
@@ -27,12 +41,43 @@ export default {
       userName,
       userIcon
     }
+  },
+  data () {
+    return {
+      userPosts: [],
+      page: 1,
+      total_pages: null
+    }
+  },
+  mounted () {
+    // await this.setPage()
+    this.contents()
+  },
+  methods: {
+    contents () {
+      const url = '/api/v1/users/moco'
+      const params = {
+        params: {
+          page: this.page
+        }
+      }
+      this.$axios.get(url, params)
+        .then((res) => {
+          this.userPosts = res.data.meta.user_posts
+          this.total_pages = res.data.meta.total_pages
+          scrollTo(0, 0)
+        })
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-p {
-  color: black;
+.cards {
+  padding: 40px 0;
+  gap: 50px 50px;
+}
+::v-deep .v-application--wrap {
+  min-height: 10vh;
 }
 </style>
