@@ -24,6 +24,14 @@
 
 <script>
 export default {
+  async asyncData ({ $axios, redirect }) {
+    const url = '/api/v1/users/search'
+    const data = await $axios.get(url)
+      .then(res => res.data)
+    if (data && data.user && data.user.user_name) {
+      redirect('/')
+    }
+  },
   data () {
     return {
       preview: this.user_icon,
@@ -39,7 +47,9 @@ export default {
     create () {
       const url = '/api/v1/users'
       const formData = new FormData()
-      formData.append('user_icon', this.user_icon)
+      if (this.user_icon) {
+        formData.append('user_icon', this.user_icon)
+      }
       formData.append('user_name', this.user_name)
       this.$axios.post(url,
         formData,

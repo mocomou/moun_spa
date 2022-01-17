@@ -11,7 +11,7 @@
       <div class="card__detail">
         <div class="card__user">
           <AtomsIcon
-            :icon="icon"
+            :icon="post.user_icon"
             class="card__icon"
           />
           <NuxtLink
