@@ -44,6 +44,7 @@ export default {
   },
   data () {
     return {
+      userName: this.userName,
       userPosts: [],
       page: 1,
       total_pages: null
@@ -55,7 +56,7 @@ export default {
   },
   methods: {
     contents () {
-      const url = '/api/v1/users/moco'
+      const url = `/api/v1/users/${this.userName}`
       const params = {
         params: {
           page: this.page
