@@ -1,7 +1,8 @@
 const solid = [
   'faUser',
   'faBars',
-  'faTimes'
+  'faTimes',
+  'faCamera'
 ]
 
 const regular = [
