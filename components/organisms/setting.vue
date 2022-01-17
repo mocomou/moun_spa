@@ -16,7 +16,7 @@
     <div class="update-btn">
       <AtomsButton
         class="primary button"
-        character="update"
+        character="更新"
         @click="update()"
       />
     </div>
@@ -82,13 +82,15 @@ export default ({
 }
 
 .setting__user-name {
-  // padding-left: 20px;
+  padding-left: 20px;
   font-size: 1.5rem;
   font-weight: bold;
   outline: none;
   position: relative;
   top: 20px;
-  left: 30px;
+  left: 20px;
+  border: solid 2px #f0f0f0;
+  border-radius: 4px;
 }
 
 .setting__profile-btn-wrap {
