@@ -11,7 +11,7 @@
         <AtomsButton
           class="primary button"
           character="編集"
-          @click="$store.commit('setting/setting')"
+          @click="setting()"
         />
       </div>
     </div>
@@ -105,6 +105,6 @@ export default {
 }
 
 .setting {
-  display: none;
+  // display: none;
 }
 </style>
