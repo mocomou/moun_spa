@@ -1,12 +1,21 @@
 <template>
   <div>
-    <div>
-      <OrganismsUserProfile
-        :icon="userIcon"
-        :name="userName"
-      />
+    <div class="userProfile">
+      <div>
+        <OrganismsUserProfile
+          :icon="userIcon"
+          :name="userName"
+        />
+      </div>
+      <div class="userProfile__setting-btn">
+        <AtomsButton
+          class="primary button"
+          character="編集"
+          @click="$store.commit('setting/setting')"
+        />
+      </div>
     </div>
-    <div>
+    <div class="setting">
       <OrganismsSetting
         :icon="userIcon"
         :name="userName"
@@ -64,9 +73,7 @@ export default {
       }
       this.$axios.get(url, params)
         .then((res) => {
-          console.log(res)
-          // console.log(res.data.user.posts)
-          this.userPosts = res.data.meta.posts
+          this.userPosts = res.data.user.posts
           this.total_pages = res.data.meta.total_pages
           scrollTo(0, 0)
         })
@@ -82,5 +89,22 @@ export default {
 }
 ::v-deep .v-application--wrap {
   min-height: 10vh;
+}
+.userProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 20px 24px 10px;
+}
+.userProfile__setting__btn {
+  @include div-pc-btn();
+}
+
+.button {
+  @include pc-btn();
+}
+
+.setting {
+  display: none;
 }
 </style>
