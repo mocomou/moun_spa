@@ -64,7 +64,9 @@ export default {
       }
       this.$axios.get(url, params)
         .then((res) => {
-          this.userPosts = res.data.meta.user_posts
+          console.log(res)
+          // console.log(res.data.user.posts)
+          this.userPosts = res.data.meta.posts
           this.total_pages = res.data.meta.total_pages
           scrollTo(0, 0)
         })
