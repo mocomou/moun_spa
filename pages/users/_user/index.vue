@@ -15,14 +15,8 @@
         />
       </div>
     </div>
-    <!-- <div class="setting">
-      <OrganismsSetting
-        :icon="userIcon"
-        :name="userName"
-      />
-    </div> -->
     <!-- showComponentがtrueになったら表示される
-    編集ボタンを押すとshowComponentがtrueになるようになっている -->
+    編集ボタンを押すとshowComponentがtrueになる -->
     <div v-if="showComponent">
       <component
         :is="component"
@@ -126,8 +120,4 @@ export default {
 .button {
   @include pc-btn();
 }
-
-// .setting {
-//   display: none;
-// }
 </style>

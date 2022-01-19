@@ -13,12 +13,21 @@
         placeholder="`${user_name}`"
       >
     </div>
-    <div class="update-btn">
-      <AtomsButton
-        class="primary button"
-        character="更新"
-        @click="update()"
-      />
+    <div class="setting__btn">
+      <div class="update-btn">
+        <AtomsButton
+          class="primary button"
+          character="更新"
+          @click="update()"
+        />
+      </div>
+      <div class="cancel-btn">
+        <AtomsButton
+          class="primary button"
+          character="キャンセル"
+          @click="cancel()"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -35,19 +44,19 @@ export default ({
       type: String,
       require: true,
       default: ''
-    },
-    show: {
-      type: Boolean,
-      require: true,
-      default: true
     }
+  //   show: {
+  //     type: Boolean,
+  //     require: true,
+  //     default: true
+  //   }
   },
   data () {
     return {
       preview: this.icon,
       user_icon: null,
-      user_name: this.name,
-      showComponent: this.show
+      user_name: this.name
+      // showComponent: this.show
     }
   },
   methods: {
@@ -69,11 +78,16 @@ export default ({
         })
         .then((res) => {
           this.$router.push(`/users/${res.data.user.user_name}`)
-          this.showComponent = false
+          // this.showComponent = false
         })
         .catch((error) => {
           console.log(error)
         })
+    },
+    cancel () {
+      return {
+        showComponent: false
+      }
     }
   }
 })
@@ -150,7 +164,15 @@ export default ({
   display: flex;
 }
 
+.setting__btn {
+  display: flex;
+}
+
 .update__btn {
+  @include div-pc-btn();
+}
+
+.cancel__btn {
   @include div-pc-btn();
 }
 
