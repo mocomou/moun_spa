@@ -1,14 +1,14 @@
 <template>
   <div class="userProfile">
-    <AtomsIcon
-      :icon="icon"
-      class="userProfile__icon"
-    />
-    <h2
-      class="userProfile__name"
-    >
-      {{ name }}
-    </h2>
+      <AtomsIcon
+        :icon="icon"
+        class="userProfile__icon"
+      />
+      <h2
+        class="userProfile__name"
+      >
+        {{ name }}
+      </h2>
   </div>
 </template>
 

@@ -85,9 +85,7 @@ export default ({
         })
     },
     cancel () {
-      return {
-        showComponent: false
-      }
+      this.$emit('close')
     }
   }
 })

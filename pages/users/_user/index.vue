@@ -5,6 +5,7 @@
         <OrganismsUserProfile
           :icon="userIcon"
           :name="userName"
+          :component="showComponent"
         />
       </div>
       <div class="userProfile__setting-btn">
@@ -15,14 +16,14 @@
         />
       </div>
     </div>
-    <!-- showComponentがtrueになったら表示される
+  <!-- showComponentがtrueになったら表示される
     編集ボタンを押すとshowComponentがtrueになる -->
     <div v-if="showComponent">
       <component
         :is="component"
         :icon="userIcon"
         :name="userName"
-        :show="showComponent"
+        @close="cancel()"
       />
     </div>
     <OrganismsCards
@@ -94,6 +95,9 @@ export default {
     showSetting () {
       this.component = setting
       this.showComponent = true
+    },
+    cancel () {
+      this.showComponent = false
     }
   }
 }
@@ -104,15 +108,18 @@ export default {
   padding: 40px 0;
   gap: 50px 50px;
 }
+
 ::v-deep .v-application--wrap {
   min-height: 10vh;
 }
+
 .userProfile {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 24px 20px 24px 10px;
 }
+
 .userProfile__setting__btn {
   @include div-pc-btn();
 }
