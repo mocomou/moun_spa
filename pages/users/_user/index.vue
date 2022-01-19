@@ -11,14 +11,24 @@
         <AtomsButton
           class="primary button"
           character="編集"
-          @click="setting()"
+          @click="showSetting()"
         />
       </div>
     </div>
-    <div class="setting">
+    <!-- <div class="setting">
       <OrganismsSetting
         :icon="userIcon"
         :name="userName"
+      />
+    </div> -->
+    <!-- showComponentがtrueになったら表示される
+    編集ボタンを押すとshowComponentがtrueになるようになっている -->
+    <div v-if="showComponent">
+      <component
+        :is="component"
+        :icon="userIcon"
+        :name="userName"
+        :show="showComponent"
       />
     </div>
     <OrganismsCards
@@ -39,7 +49,14 @@
 </template>
 
 <script>
+import setting from '@/components/organisms/setting.vue'
+import profile from '@/components/organisms/UserProfile.vue'
+
 export default {
+  components: {
+    setting,
+    profile
+  },
   async asyncData ({ $axios, route }) {
     const url = `/api/v1/users/${route.params.user}`
     const user = await $axios.get(url)
@@ -56,7 +73,9 @@ export default {
       userName: this.userName,
       userPosts: [],
       page: 1,
-      total_pages: null
+      total_pages: null,
+      showComponent: false,
+      component: this.setting
     }
   },
   mounted () {
@@ -77,6 +96,10 @@ export default {
           this.total_pages = res.data.meta.total_pages
           scrollTo(0, 0)
         })
+    },
+    showSetting () {
+      this.component = setting
+      this.showComponent = true
     }
   }
 }
@@ -104,7 +127,7 @@ export default {
   @include pc-btn();
 }
 
-.setting {
-  // display: none;
-}
+// .setting {
+//   display: none;
+// }
 </style>
