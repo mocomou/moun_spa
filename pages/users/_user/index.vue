@@ -1,34 +1,32 @@
 <template>
   <div>
-    <div class="userProfile">
+    <div
+      class="userProfile"
+      :class="{ close: $store.state.setting.active }"
+    >
       <div>
         <OrganismsUserProfile
           :icon="userIcon"
           :name="userName"
+          :component="showComponent"
         />
       </div>
       <div class="userProfile__setting-btn">
         <AtomsButton
           class="primary button"
           character="編集"
-          @click="showSetting()"
+          @click="showSetting(), $store.commit('setting/closeComponent')"
         />
       </div>
     </div>
-    <!-- <div class="setting">
-      <OrganismsSetting
-        :icon="userIcon"
-        :name="userName"
-      />
-    </div> -->
-    <!-- showComponentがtrueになったら表示される
-    編集ボタンを押すとshowComponentがtrueになるようになっている -->
+  <!-- showComponentがtrueになったら表示される
+    編集ボタンを押すとshowComponentがtrueになる -->
     <div v-if="showComponent">
       <component
         :is="component"
         :icon="userIcon"
         :name="userName"
-        :show="showComponent"
+        @close="cancel()"
       />
     </div>
     <OrganismsCards
@@ -100,6 +98,9 @@ export default {
     showSetting () {
       this.component = setting
       this.showComponent = true
+    },
+    cancel () {
+      this.showComponent = false
     }
   }
 }
@@ -110,15 +111,22 @@ export default {
   padding: 40px 0;
   gap: 50px 50px;
 }
+
 ::v-deep .v-application--wrap {
   min-height: 10vh;
 }
+
 .userProfile {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 24px 20px 24px 10px;
+  margin: 12px 20px 0px 10px;
 }
+
+.userProfile.close {
+  display: none;
+}
+
 .userProfile__setting__btn {
   @include div-pc-btn();
 }
@@ -126,8 +134,4 @@ export default {
 .button {
   @include pc-btn();
 }
-
-// .setting {
-//   display: none;
-// }
 </style>
