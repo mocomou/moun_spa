@@ -120,7 +120,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 24px 20px 24px 10px;
+  margin: 12px 20px 0px 10px;
 }
 
 .userProfile.close {
