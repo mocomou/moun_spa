@@ -1,14 +1,14 @@
 <template>
   <div>
     <div
+      v-if="!showEditComponent"
       class="userProfile"
-      :class="{ close: $store.state.setting.active }"
     >
       <div>
         <OrganismsUserProfile
           :icon="userIcon"
           :name="userName"
-          :component="showComponent"
+          :component="showEditComponent"
         />
       </div>
       <div class="userProfile__setting-btn">
@@ -19,16 +19,14 @@
         />
       </div>
     </div>
-  <!-- showComponentがtrueになったら表示される
-    編集ボタンを押すとshowComponentがtrueになる -->
-    <div v-if="showComponent">
-      <component
-        :is="component"
-        :icon="userIcon"
-        :name="userName"
-        @close="cancel()"
-      />
-    </div>
+  <!-- showEditComponentがtrueになったら表示される
+    編集ボタンを押すとshowEditComponentがtrueになる -->
+    <OrganismsSetting
+      v-else
+      :icon="userIcon"
+      :name="userName"
+      @close="cancel()"
+    />
     <OrganismsCards
       :posts="userPosts"
     />
@@ -47,14 +45,7 @@
 </template>
 
 <script>
-import setting from '@/components/organisms/setting.vue'
-import profile from '@/components/organisms/UserProfile.vue'
-
 export default {
-  components: {
-    setting,
-    profile
-  },
   async asyncData ({ $axios, route }) {
     const url = `/api/v1/users/${route.params.user}`
     const user = await $axios.get(url)
@@ -72,8 +63,7 @@ export default {
       userPosts: [],
       page: 1,
       total_pages: null,
-      showComponent: false,
-      component: this.setting
+      showEditComponent: false
     }
   },
   mounted () {
@@ -96,11 +86,10 @@ export default {
         })
     },
     showSetting () {
-      this.component = setting
-      this.showComponent = true
+      this.showEditComponent = true
     },
     cancel () {
-      this.showComponent = false
+      this.showEditComponent = false
     }
   }
 }
