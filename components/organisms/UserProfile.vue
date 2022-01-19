@@ -33,13 +33,13 @@ export default {
 .userProfile {
   display: flex;
   align-items: center;
-  margin: 24px 20px;
 }
+
 .userProfile__icon {
   height: 100px;
   width: 100px;
 }
 .userProfile__name {
-  padding-left: 20px;
+  padding-left: 30px;
 }
 </style>

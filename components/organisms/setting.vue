@@ -16,7 +16,7 @@
     <div class="update-btn">
       <AtomsButton
         class="primary button"
-        character="update"
+        character="更新"
         @click="update()"
       />
     </div>
@@ -35,13 +35,19 @@ export default ({
       type: String,
       require: true,
       default: ''
+    },
+    show: {
+      type: Boolean,
+      require: true,
+      default: true
     }
   },
   data () {
     return {
       preview: this.icon,
       user_icon: null,
-      user_name: this.name
+      user_name: this.name,
+      showComponent: this.show
     }
   },
   methods: {
@@ -50,7 +56,7 @@ export default ({
       this.preview = window.URL.createObjectURL(this.user_icon)
     },
     update () {
-      const url = `/api/v1/users/${this.user_name}`
+      const url = `/api/v1/users/${this.name}`
       const formData = new FormData()
       formData.append('user_icon', this.user_icon)
       formData.append('user_name', this.user_name)
@@ -63,6 +69,7 @@ export default ({
         })
         .then((res) => {
           this.$router.push(`/users/${res.data.user.user_name}`)
+          this.showComponent = false
         })
         .catch((error) => {
           console.log(error)
@@ -82,13 +89,15 @@ export default ({
 }
 
 .setting__user-name {
-  // padding-left: 20px;
+  padding-left: 20px;
   font-size: 1.5rem;
   font-weight: bold;
   outline: none;
   position: relative;
   top: 20px;
-  left: 30px;
+  left: 20px;
+  border: solid 2px #f0f0f0;
+  border-radius: 4px;
 }
 
 .setting__profile-btn-wrap {
