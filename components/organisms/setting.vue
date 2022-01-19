@@ -18,14 +18,14 @@
         <AtomsButton
           class="primary button"
           character="更新"
-          @click="update()"
+          @click="update(), $store.commit('setting/openComponent')"
         />
       </div>
       <div class="cancel-btn">
         <AtomsButton
           class="primary button"
           character="キャンセル"
-          @click="cancel()"
+          @click="cancel(), $store.commit('setting/openComponent')"
         />
       </div>
     </div>

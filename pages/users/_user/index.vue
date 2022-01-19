@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="userProfile">
+    <div
+      class="userProfile"
+      :class="{ close: $store.state.setting.active }"
+    >
       <div>
         <OrganismsUserProfile
           :icon="userIcon"
@@ -12,7 +15,7 @@
         <AtomsButton
           class="primary button"
           character="編集"
-          @click="showSetting()"
+          @click="showSetting(), $store.commit('setting/closeComponent')"
         />
       </div>
     </div>
@@ -118,6 +121,10 @@ export default {
   align-items: center;
   justify-content: space-between;
   margin: 24px 20px 24px 10px;
+}
+
+.userProfile.close {
+  display: none;
 }
 
 .userProfile__setting__btn {
