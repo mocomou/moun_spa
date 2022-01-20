@@ -1,5 +1,5 @@
 <template>
-  <li class="card">
+  <!-- <li class="card"> -->
     <NuxtLink :to="`/posts/${post.id}`" class="card__link">
       <AtomsImage
         original-image="/images/card/card_image.jpg"
@@ -10,10 +10,15 @@
       </h3>
       <div class="card__detail">
         <div class="card__user">
-          <AtomsIcon
-            :icon="post.user_icon"
-            class="card__icon"
-          />
+          <NuxtLink
+            :to="`/users/${post.user_name}`"
+            class="card__user__link"
+          >
+            <AtomsIcon
+              :icon="post.user_icon"
+              class="card__icon"
+            />
+          </NuxtLink>
           <NuxtLink
             :to="`/users/${post.user_name}`"
             class="card__user__link"
@@ -28,7 +33,7 @@
         </span>
       </div>
     </NuxtLink>
-  </li>
+  <!-- </li> -->
 </template>
 
 <script>
@@ -48,17 +53,27 @@ $card-width: 320px;
 $card-height: 274px;
 
 .card {
+  // box-shadow:0px 0px 5px #808080;
+  // border: 1px solid #c0c0c0;
+  // border-radius: 6px;
+  // overflow: hidden;
+  // width: $card-width;
+  // height: $card-height;
+}
+
+.card:last-child {
+  margin-right: auto;
+}
+
+.card__link {
+  text-decoration: none;
+  color: #333;
   box-shadow:0px 0px 5px #808080;
   border: 1px solid #c0c0c0;
   border-radius: 6px;
   overflow: hidden;
   width: $card-width;
   height: $card-height;
-}
-
-.card__link {
-  text-decoration: none;
-  color: #333;
 }
 
 .card__link:hover {
