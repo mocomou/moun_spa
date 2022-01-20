@@ -10,7 +10,10 @@
       <div class="header__inner-right">
         <NuxtLink to="/create">
           <div class="header__user">
-            <font-awesome-icon :icon="['far', 'user']" class="header__user-icon" />
+            <AtomsIcon
+              icon="$store.state.user.user_icon"
+              class="header__icon"
+            />
           </div>
         </NuxtLink>
         <AtomsHamburgerMenu

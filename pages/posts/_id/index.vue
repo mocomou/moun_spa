@@ -10,7 +10,7 @@
       <div class="post__content__container">
         <div v-dompurify-html="html" class="post__content" />
       </div>
-      <template v-if="currentUser === post.user_name">
+      <template v-if="currentUser === post.sub">
         <div class="modify-btn">
           <NuxtLink :to="`${post.id}/edit`">
             <AtomsButton
@@ -63,7 +63,7 @@ export default {
       const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
       }).join(''))
-      return JSON.parse(jsonPayload).nickname
+      return JSON.parse(jsonPayload).sub
     }
   },
   methods: {

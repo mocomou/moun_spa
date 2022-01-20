@@ -11,7 +11,10 @@
           :component="showEditComponent"
         />
       </div>
-      <div class="userProfile__setting-btn">
+      <div
+        v-if="currentUser === userSub"
+        class="userProfile__setting-btn"
+      >
         <AtomsButton
           class="primary button"
           character="編集"
@@ -19,7 +22,7 @@
         />
       </div>
     </div>
-  <!-- showEditComponentがtrueになったら表示される
+    <!-- showEditComponentがtrueになったら表示される
     編集ボタンを押すとshowEditComponentがtrueになる -->
     <OrganismsSetting
       v-else
@@ -52,9 +55,11 @@ export default {
       .then(res => res.data.user)
     const userName = user.user_name
     const userIcon = user.user_icon
+    const userSub = user.sub
     return {
       userName,
-      userIcon
+      userIcon,
+      userSub
     }
   },
   data () {
@@ -64,6 +69,20 @@ export default {
       page: 1,
       total_pages: null,
       showEditComponent: false
+    }
+  },
+  computed: {
+    loggedIn () {
+      return !!this.$auth.strategy.token.get()
+    },
+    currentUser () {
+      const token = this.$auth.strategy.token.get()
+      const base64Url = token.split('.')[1]
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      }).join(''))
+      return JSON.parse(jsonPayload).sub
     }
   },
   mounted () {
