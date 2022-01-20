@@ -99,12 +99,13 @@ export default ({
 .setting {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin: 24px 20px;
 }
 
 .setting__profile-wrap {
   display: flex;
+  align-items: center;
 }
 
 .setting__image {
@@ -124,13 +125,10 @@ export default ({
 .setting__user-icon-wrap {
   background-color: #e0e0e0;
   position: absolute;
-  // top: 24px;
-  // left: 5px;
   opacity: 0.5;
   border-radius: 100vh;
   height: 50%;
   width: 50%;
-  // margin-left: 20px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -154,13 +152,12 @@ export default ({
 }
 
 .setting__user-name {
-  padding-left: 20px;
+  margin-left: 20px;
+  padding: 0px 20px;
   font-size: 1.5rem;
   font-weight: bold;
   outline: none;
-  position: relative;
-  top: 20px;
-  left: 20px;
+  height: 56px;
   border: solid 2px #f0f0f0;
   border-radius: 4px;
 }
