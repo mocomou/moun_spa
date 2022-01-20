@@ -19,6 +19,11 @@
 
 <script>
 export default {
+  // asyncData ({}) {
+  //   const url = `/api/v1/posts/${route.params.id}`
+  //   const post = await $axios.get(url)
+  //     .then(res => res.data.post)
+  // },
   data () {
     return {
       posts: [],
@@ -43,7 +48,7 @@ export default {
       }
       this.$axios.get(url, params)
         .then((res) => {
-          // console.log(res)
+          console.log(!!this.$auth.strategy.token.get())
           this.posts = res.data.posts
           this.total_pages = res.data.meta.total_pages
           scrollTo(0, 0)
