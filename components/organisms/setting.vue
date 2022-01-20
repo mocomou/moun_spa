@@ -1,12 +1,14 @@
 <template>
   <div class="setting">
     <div class="setting__profile-wrap">
-      <img :src="preview" alt="user_icon" class="setting__preview-icon">
-      <div class="setting__user-icon-wrap" />
-      <label>
-        <font-awesome-icon :icon="['fas', 'camera']" class="setting__select-user-icon" />
-        <input class="setting__user-icon" type="file" @change="fileUpload( $event )">
-      </label>
+      <div class="setting__image">
+        <img :src="preview" alt="user_icon" class="setting__preview-icon">
+        <div class="setting__user-icon-wrap" />
+        <label>
+          <font-awesome-icon :icon="['fas', 'camera']" class="setting__select-user-icon" />
+          <input class="setting__user-icon" type="file" @change="fileUpload( $event )">
+        </label>
+      </div>
       <input
         v-model="user_name"
         class="setting__user-name"
@@ -67,7 +69,9 @@ export default ({
     update () {
       const url = `/api/v1/users/${this.name}`
       const formData = new FormData()
-      formData.append('user_icon', this.user_icon)
+      if (this.user_icon) {
+        formData.append('user_icon', this.user_icon)
+      }
       formData.append('user_name', this.user_name)
       this.$axios.patch(url,
         formData,
@@ -97,7 +101,56 @@ export default ({
   justify-content: space-between;
   align-items: baseline;
   margin: 24px 20px;
+}
 
+.setting__profile-wrap {
+  display: flex;
+}
+
+.setting__image {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+
+.setting__preview-icon {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 100vh;
+  position: absolute;
+}
+
+.setting__user-icon-wrap {
+  background-color: #e0e0e0;
+  position: absolute;
+  // top: 24px;
+  // left: 5px;
+  opacity: 0.5;
+  border-radius: 100vh;
+  height: 50%;
+  width: 50%;
+  // margin-left: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.setting__select-user-icon {
+  color: #333;
+  font-size: 1.4rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.setting__select-user-icon:hover {
+  opacity: 0.8;
+}
+
+.setting__user-icon {
+  display: none
 }
 
 .setting__user-name {
@@ -112,56 +165,6 @@ export default ({
   border-radius: 4px;
 }
 
-.setting__profile-btn-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.setting__icon-wrap {
-  display: block;
-}
-
-.setting__preview-icon {
-  height: 100px;
-  width: 100px;
-  object-fit: cover;
-  border-radius: 100vh;
-  position: absolute;
-}
-
-.setting__user-icon-wrap {
-  background-color: #e0e0e0;
-  position: relative;
-  top: 24px;
-  left: 5px;
-  opacity: 0.5;
-  border-radius: 50px 50px;
-  height: 50px;
-  width: 50px;
-  margin-left: 20px;
-}
-
-.setting__select-user-icon {
-  color: #333;
-  font-size: 1.4rem;
-  position: relative;
-  top: 38px;
-  left: -31px;
-}
-
-.setting__select-user-icon:hover {
-  opacity: 0.8;
-}
-
-.setting__user-icon {
-  display: none
-}
-
-.setting__profile-wrap {
-  display: flex;
-}
-
 .setting__btn {
   display: flex;
 }
@@ -170,11 +173,11 @@ export default ({
   @include div-pc-btn();
 }
 
-.cancel__btn {
-  @include div-pc-btn();
-}
-
 .button {
   @include pc-btn();
+}
+
+.cancel__btn {
+  @include div-pc-btn();
 }
 </style>
