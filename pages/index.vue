@@ -19,20 +19,20 @@
 
 <script>
 export default {
-  async asyncData ({ $axios }) {
-    // const token = $auth.strategy.token.get()
-    // console.log(token)
-    const url = '/api/v1/users/search'
-    const data = await $axios.get(url)
-      .then(res => res.data.user)
-    return data
-  },
+  // async asyncData ({ $axios }) {
+  //   // const token = $auth.strategy.token.get()
+  //   // console.log(token)
+  //   const url = '/api/v1/users/search'
+  //   const data = await $axios.get(url)
+  //     .then(res => res.data.user)
+  //   return data
+  // },
   data () {
     return {
       posts: [],
       page: 1,
-      total_pages: null,
-      data: this.data
+      total_pages: null
+      // data: this.data
     }
   },
   fetch ({ store }) {

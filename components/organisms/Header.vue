@@ -9,12 +9,17 @@
       </NuxtLink>
       <div class="header__inner-right">
         <NuxtLink to="/create">
-          <div class="header__user">
+          <template v-if="loggedIn">
             <AtomsIcon
-              icon="$store.state.user.user_icon"
+              v-if="userIcon"
+              :icon="userIcon"
               class="header__icon"
             />
-          </div>
+            <font-awesome-icon
+              v-else
+              :icon="['fas', 'user']"
+            />
+          </template>
         </NuxtLink>
         <AtomsHamburgerMenu
           class="header__menu"
@@ -26,6 +31,14 @@
 
 <script>
 export default {
+  computed: {
+    userIcon () {
+      return this.$store.state.user.userIcon
+    },
+    loggedIn () {
+      return this.$store.state.user.loggedIn
+    }
+  }
 }
 </script>
 
@@ -70,9 +83,8 @@ export default {
   font-family: 'Heebo', sans-serif;
 }
 
-.header__user-icon {
-  color: white;
-  font-size: 18px;
+.header__icon {
+  width: 36px;
 }
 .header__menu {
   color: white;
@@ -92,11 +104,6 @@ export default {
 
   .header__title {
     font-size: 2.2rem;
-  }
-
-  .header__user-icon {
-  color: white;
-  font-size: 28px;
   }
 
   .header__user-icon:hover {
