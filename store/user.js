@@ -1,9 +1,18 @@
 export const state = () => ({
-  user: {}
+  userName: '',
+  userIcon: '',
+  loggedIn: false
 })
 
 export const mutations = {
-  setIcon (state, userIcon) {
-    state.user.use_icon = userIcon
+  setUser (state, data) {
+    state.loggedIn = data.loggedIn
+    state.userName = data.userName
+    state.userIcon = data.userIcon
+  },
+  logout (state) {
+    state.loggedIn = false
+    state.userName = ''
+    state.userIcon = ''
   }
 }

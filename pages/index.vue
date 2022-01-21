@@ -19,11 +19,20 @@
 
 <script>
 export default {
+  // async asyncData ({ $axios }) {
+  //   // const token = $auth.strategy.token.get()
+  //   // console.log(token)
+  //   const url = '/api/v1/users/search'
+  //   const data = await $axios.get(url)
+  //     .then(res => res.data.user)
+  //   return data
+  // },
   data () {
     return {
       posts: [],
       page: 1,
       total_pages: null
+      // data: this.data
     }
   },
   fetch ({ store }) {
@@ -43,7 +52,7 @@ export default {
       }
       this.$axios.get(url, params)
         .then((res) => {
-          // console.log(res)
+          // console.log(this.$auth.strategy.token.get())
           this.posts = res.data.posts
           this.total_pages = res.data.meta.total_pages
           scrollTo(0, 0)

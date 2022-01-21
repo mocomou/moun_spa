@@ -11,7 +11,10 @@
           :component="showEditComponent"
         />
       </div>
-      <div class="userProfile__setting-btn">
+      <div
+        v-if="currentUser === userName"
+        class="userProfile__setting-btn"
+      >
         <AtomsButton
           class="primary button"
           character="編集"
@@ -19,7 +22,7 @@
         />
       </div>
     </div>
-  <!-- showEditComponentがtrueになったら表示される
+    <!-- showEditComponentがtrueになったら表示される
     編集ボタンを押すとshowEditComponentがtrueになる -->
     <OrganismsSetting
       v-else
@@ -59,11 +62,18 @@ export default {
   },
   data () {
     return {
-      userName: this.userName,
       userPosts: [],
       page: 1,
       total_pages: null,
       showEditComponent: false
+    }
+  },
+  computed: {
+    loggedIn () {
+      return !!this.$auth.strategy.token.get()
+    },
+    currentUser () {
+      return this.$store.state.user.userName
     }
   },
   mounted () {
@@ -80,7 +90,8 @@ export default {
       }
       this.$axios.get(url, params)
         .then((res) => {
-          this.userPosts = res.data.user.posts
+          console.log(res.data)
+          this.userPosts = res.data.user.posts.slice().reverse()
           this.total_pages = res.data.meta.total_pages
           scrollTo(0, 0)
         })

@@ -7,6 +7,7 @@
 <script>
 export default {
   mounted () {
+    this.$store.commit('user/logout')
     this.$auth.logout()
   }
 }
