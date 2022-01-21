@@ -177,4 +177,18 @@ export default ({
 .cancel__btn {
   @include div-pc-btn();
 }
+
+@media all and (max-width: 1023px) {
+  .setting {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 0px;
+  }
+
+  .setting__btn {
+    display: flex;
+    flex-direction: row;
+  }
+}
 </style>

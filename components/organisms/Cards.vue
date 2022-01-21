@@ -39,6 +39,9 @@ export default {
   grid-gap: 40px 40px;
   gap: 40px 40px;
   // ここでそれっぽくしてるだけ
-  padding: 40px 80px;
+  // padding: 40px 80px;
+}
+
+@media all and (max-width: 1023px) {
 }
 </style>
