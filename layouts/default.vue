@@ -44,7 +44,7 @@ export default {
 }
 
 .inner__main {
-  flex-basis: 85%;
+  flex-basis: 100%;
   margin-top: $header-height;
   margin-bottom: $footer-height;
   @include base-font();

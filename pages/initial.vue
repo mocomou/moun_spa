@@ -24,11 +24,16 @@
 
 <script>
 export default {
-  async asyncData ({ $axios, redirect }) {
+  async asyncData ({ $axios, redirect, store }) {
     const url = '/api/v1/users/search'
     const data = await $axios.get(url)
       .then(res => res.data)
     if (data && data.user && data.user.user_name) {
+      store.commit('user/setUser', {
+        loggedIn: true,
+        userName: data.user.user_name,
+        userIcon: data.user.user_icon
+      })
       redirect('/')
     }
   },
@@ -59,6 +64,11 @@ export default {
           }
         })
         .then((res) => {
+          this.$store.commit('user/setUser', {
+            loggedIn: true,
+            userName: res.data.user.user_name,
+            userIcon: res.data.user.user_icon
+          })
           this.$router.push('/')
         })
         .catch((error) => {
