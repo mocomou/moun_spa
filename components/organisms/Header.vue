@@ -1,14 +1,19 @@
 <template>
   <header class="header">
-    <div class="header__inner-left">
-      <NuxtLink to="/" class="header__logo" tag="div">
-        <img src="/images/header/icon.png" alt="icon" class="header__image">
-        <h1 class="header__title">
-          moun
-        </h1>
-      </NuxtLink>
+    <div class="header__container">
+      <div class="header__inner-left">
+        <NuxtLink to="/" class="header__logo" tag="div">
+          <img src="/images/header/icon.png" alt="icon" class="header__image">
+          <h1 class="header__title">
+            moun
+          </h1>
+        </NuxtLink>
+      </div>
       <div class="header__inner-right">
-        <NuxtLink to="/create">
+        <NuxtLink
+          to="/create"
+          class="header__link"
+        >
           <template v-if="loggedIn">
             <AtomsIcon
               v-if="userIcon"
@@ -46,23 +51,33 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
 .header {
   // top: -webkit-sticky;
+  width: 100%;
   top: 0;
-  @include max-width();
   height: $responsive-header-height;
   background-color: #202020;
   // transition: all .2s;
-  // display: none;
 }
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  @include max-width();
+}
+
 .header__inner-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: $responsive-header-height;
-  margin: 0 20px;
 }
 
 .header__inner-right {
   display: flex;
+  align-items: center;
+}
+
+.header__link {
+  height: 36px;
 }
 
 .header__logo {
@@ -85,6 +100,7 @@ export default {
 
 .header__icon {
   width: 36px;
+  height: 36px;
 }
 .header__menu {
   color: white;

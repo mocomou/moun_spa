@@ -11,7 +11,8 @@ $menu-size: 18px;
 $menu-line-height: 3px;
 
 @mixin max-width {
-  width: 100%;
+  width: calc(100% - 16px);
+  margin: 0 auto;
   padding: 0;
 }
 
