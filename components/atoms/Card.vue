@@ -1,5 +1,4 @@
 <template>
-  <!-- <li class="card"> -->
   <NuxtLink :to="`/posts/${post.id}`" class="card__link">
     <AtomsImage
       original-image="/images/card/card_image.jpg"
@@ -33,7 +32,6 @@
       </span>
     </div>
   </NuxtLink>
-  <!-- </li> -->
 </template>
 
 <script>
@@ -49,31 +47,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$card-width: 320px;
-$card-height: 274px;
-
-.card {
-  // box-shadow:0px 0px 5px #808080;
-  // border: 1px solid #c0c0c0;
-  // border-radius: 6px;
-  // overflow: hidden;
-  // width: $card-width;
-  // height: $card-height;
-}
-
-.card:last-child {
-  margin-right: auto;
-}
-
 .card__link {
   text-decoration: none;
   color: #333;
-  box-shadow:0px 0px 5px #808080;
-  border: 1px solid #c0c0c0;
-  border-radius: 6px;
-  overflow: hidden;
-  width: $card-width;
-  height: $card-height;
 }
 
 .card__link:hover {
