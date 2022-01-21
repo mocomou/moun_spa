@@ -12,7 +12,7 @@
         />
       </div>
       <div
-        v-if="currentUser === userSub"
+        v-if="currentUser === userName"
         class="userProfile__setting-btn"
       >
         <AtomsButton
@@ -55,16 +55,13 @@ export default {
       .then(res => res.data.user)
     const userName = user.user_name
     const userIcon = user.user_icon
-    const userSub = user.sub
     return {
       userName,
-      userIcon,
-      userSub
+      userIcon
     }
   },
   data () {
     return {
-      userName: this.userName,
       userPosts: [],
       page: 1,
       total_pages: null,
@@ -76,13 +73,7 @@ export default {
       return !!this.$auth.strategy.token.get()
     },
     currentUser () {
-      const token = this.$auth.strategy.token.get()
-      const base64Url = token.split('.')[1]
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-      }).join(''))
-      return JSON.parse(jsonPayload).sub
+      return this.$store.state.user.userName
     }
   },
   mounted () {
