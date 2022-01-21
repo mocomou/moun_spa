@@ -1,39 +1,37 @@
 <template>
-  <li class="card">
-    <NuxtLink :to="`/posts/${post.id}`" class="card__link">
-      <AtomsImage
-        original-image="/images/card/card_image.jpg"
-        webp-image="/images/card/card_image.webp"
-      />
-      <h3 class="card__title">
-        {{ post.title }}
-      </h3>
-      <div class="card__detail">
-        <div class="card__user">
-          <NuxtLink
-            :to="`/users/${post.user_name}`"
-            class="card__user__link"
-          >
-            <AtomsIcon
-              :icon="post.user_icon"
-              class="card__icon"
-            />
-          </NuxtLink>
-          <NuxtLink
-            :to="`/users/${post.user_name}`"
-            class="card__user__link"
-          >
-            <span class="card__user-name">
-              {{ post.user_name }}
-            </span>
-          </NuxtLink>
-        </div>
-        <span class="card__created-at">
-          {{ $dateFns.format(new Date(post.created_at), 'yyyy/MM/dd') }}
-        </span>
+  <NuxtLink :to="`/posts/${post.id}`" class="card__link">
+    <AtomsImage
+      original-image="/images/card/card_image.jpg"
+      webp-image="/images/card/card_image.webp"
+    />
+    <h3 class="card__title">
+      {{ post.title }}
+    </h3>
+    <div class="card__detail">
+      <div class="card__user">
+        <NuxtLink
+          :to="`/users/${post.user_name}`"
+          class="card__user__link"
+        >
+          <AtomsIcon
+            :icon="post.user_icon"
+            class="card__icon"
+          />
+        </NuxtLink>
+        <NuxtLink
+          :to="`/users/${post.user_name}`"
+          class="card__user__link"
+        >
+          <span class="card__user-name">
+            {{ post.user_name }}
+          </span>
+        </NuxtLink>
       </div>
-    </NuxtLink>
-  </li>
+      <span class="card__created-at">
+        {{ $dateFns.format(new Date(post.created_at), 'yyyy/MM/dd') }}
+      </span>
+    </div>
+  </NuxtLink>
 </template>
 
 <script>
@@ -49,26 +47,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$card-width: 320px;
-$card-height: 274px;
-
-.card {
-  box-shadow:0px 0px 5px #808080;
-  border: 1px solid #c0c0c0;
-  border-radius: 6px;
-  overflow: hidden;
-  width: $card-width;
-  height: $card-height;
-}
-
 .card__link {
   text-decoration: none;
   color: #333;
-}
-
-.card:last-child {
-  margin-right: auto;
-  // margin-left: 30px;
 }
 
 .card__link:hover {

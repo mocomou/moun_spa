@@ -1,12 +1,14 @@
 <template>
   <ul class="cards">
-    <div class="cards__container">
+    <li
+      v-for="post in posts"
+      :key="post.id"
+      class="cards__item"
+    >
       <AtomsCard
-        v-for="post in posts"
-        :key="post.id"
         :post="post"
       />
-    </div>
+    </li>
   </ul>
 </template>
 
@@ -23,23 +25,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.cards{
-  // margin: 0 auto;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-}
+$card-width: 320px;
+$card-height: 274px;
+$card-gap: 40px;
 
-.cards__container {
-  // list-style: none;
+.cards{
+  width: 1040px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
-  grid-gap: 40px 40px;
-  gap: 40px 40px;
-  // ここでそれっぽくしてるだけ
-  // padding: 40px 80px;
+  grid-gap: $card-gap;
+  gap: $card-gap;
+}
+
+.cards__item {
+  box-shadow:0px 0px 5px #808080;
+  border: 1px solid #c0c0c0;
+  border-radius: 6px;
+  overflow: hidden;
+  width: $card-width;
+  height: $card-height;
+}
+
+.cards__item:last-child {
+  margin-right: auto;
 }
 </style>
