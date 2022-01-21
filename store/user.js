@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setIcon (state, user_icon) {
-    state.user.user_icon = user_icon
+  setUser (state, data) {
+    state.user = data
   }
 }

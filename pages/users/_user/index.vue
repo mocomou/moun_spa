@@ -99,7 +99,8 @@ export default {
       }
       this.$axios.get(url, params)
         .then((res) => {
-          this.userPosts = res.data.user.posts
+          console.log(res.data)
+          this.userPosts = res.data.user.posts.slice().reverse()
           this.total_pages = res.data.meta.total_pages
           scrollTo(0, 0)
         })
