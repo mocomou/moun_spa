@@ -10,7 +10,7 @@ export const mutations = {
     state.userName = data.userName
     state.userIcon = data.userIcon
   },
-  logout () {
+  logout (state) {
     state.loggedIn = false
     state.userName = ''
     state.userIcon = ''
