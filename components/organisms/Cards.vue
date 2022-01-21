@@ -1,5 +1,5 @@
 <template>
-  <div class="cards">
+  <ul class="cards">
     <div class="cards__container">
       <AtomsCard
         v-for="post in posts"
@@ -7,7 +7,7 @@
         :post="post"
       />
     </div>
-  </div>
+  </ul>
 </template>
 
 <script>
@@ -24,7 +24,8 @@ export default {
 
 <style scoped lang="scss">
 .cards{
-  margin: 0 auto;
+  // margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -34,11 +35,11 @@ export default {
   // list-style: none;
   display: flex;
   flex-wrap: wrap;
-  // margin: 0 auto;
-  justify-content: flex-start;
+  margin: 0 auto;
+  justify-content: center;
   grid-gap: 40px 40px;
   gap: 40px 40px;
   // ここでそれっぽくしてるだけ
-  padding: 40px 80px;
+  // padding: 40px 80px;
 }
 </style>
